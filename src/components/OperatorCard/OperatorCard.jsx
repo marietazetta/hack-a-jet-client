@@ -1,7 +1,11 @@
 const OperatorCard = () => {
 
     return (
-        <h2>Horizon Line</h2>
+
+        <div className="OperatorCard">
+            <h2>Horizon Line</h2>
+        </div>
+
     )
 }
 

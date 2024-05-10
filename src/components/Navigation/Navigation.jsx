@@ -1,21 +1,34 @@
 import { Container, Navbar, Nav } from 'react-bootstrap'
-//import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import './Navigation.css'
 
 const Navigation = () => {
 
     return (
 
         <>
-            <Navbar bg="dark" data-bs-theme="dark">
-                <Container>
-                    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-                    <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link href="#pricing">Pricing</Nav.Link>
-                    </Nav>
-                </Container>
-            </Navbar>
+            <div className='Navigation'>
+                <Navbar bg="dark" data-bs-theme="dark">
+                    <Container>
+                        <Link to="/">
+                            <Nav.Link href="/" as="span"><img src="./../assets/HackaJet.jpg" alt="LOGO" /></Nav.Link>
+                        </Link>
+
+                        <Nav className="me-auto">
+                            <Link to="/operators">
+                                <Nav.Link href="/operators" as="span">Operators</Nav.Link>
+                            </Link>
+
+                            <Link to="/aircrafts">
+                                <Nav.Link href="/aircrafts" as="span">Fleet</Nav.Link>
+                            </Link>
+                            <Link to="/membership">
+                                <Nav.Link href="/membership" as="span">Become a member</Nav.Link>
+                            </Link>
+                        </Nav>
+                    </Container>
+                </Navbar>
+            </div>
         </>
 
     )

@@ -7,6 +7,7 @@ import AircraftsPage from "./pages/AircraftsPage/AircraftsPage"
 import OperatorCard from './components/OperatorCard/OperatorCard'
 import AircraftCard from './components/AircraftCard/AircraftCard'
 import HomePage from './pages/HomePage/HomePage'
+import MembershipPage from './pages/MembershipPage/MembershipPage'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/aircrafts" element={<AircraftsPage />} />
           <Route path="/operators/:operatorId" element={<OperatorCard />} />
           <Route path="/aircrafts/:aircraftId" element={<AircraftCard />} />
+          <Route path="/membership" element={<MembershipPage />} />
 
 
         </Routes>

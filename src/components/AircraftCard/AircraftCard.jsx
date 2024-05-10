@@ -1,7 +1,10 @@
 const AircraftCard = () => {
 
     return (
-        <h2>Citation Latitude</h2>
+        <div className="AircraftCard">
+            <h2>Citation Latitude</h2>
+        </div>
+
     )
 }
 
