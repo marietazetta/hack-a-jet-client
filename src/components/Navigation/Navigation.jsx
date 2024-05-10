@@ -2,16 +2,18 @@ import { Container, Navbar, Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import './Navigation.css'
 
+
+
 const Navigation = () => {
 
     return (
 
         <>
-            <div className='Navigation'>
+            <nav className='Navigation'>
                 <Navbar bg="dark" data-bs-theme="dark">
                     <Container>
                         <Link to="/">
-                            <Nav.Link href="/" as="span"><img src="./../assets/HackaJet.jpg" alt="LOGO" /></Nav.Link>
+                            <Nav.Link href="/" as="span"><img src="./src\assets\HackAJet.jpg" alt="LOGO" /></Nav.Link>
                         </Link>
 
                         <Nav className="me-auto">
@@ -28,7 +30,7 @@ const Navigation = () => {
                         </Nav>
                     </Container>
                 </Navbar>
-            </div>
+            </nav>
         </>
 
     )

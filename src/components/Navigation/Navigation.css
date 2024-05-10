@@ -1,3 +1,11 @@
+img {
+    width: 50px;
+    border-radius: 50px;
+
+}
+
+
+
 .Navigation a {
     text-decoration: none;
 }
