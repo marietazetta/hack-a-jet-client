@@ -1,8 +1,9 @@
 const OperatorsPage = () => {
 
     return (
-
-        <h2>Our Operators</h2>
+        <div className="OperatorsPage">
+            <h2>Our Operators</h2>
+        </div>
     )
 }
 

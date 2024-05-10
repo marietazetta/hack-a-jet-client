@@ -1,12 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
-import Navbar from "./components/Navbar/Navbar"
+import Navigation from "./components/Navigation/Navigation"
 import { Route, Routes } from 'react-router-dom'
-import HomePage from './pages/HomePage/HomePage'
 import OperatorsPage from './pages/OperatorsPage/OperatorsPage'
 import AircraftsPage from "./pages/AircraftsPage/AircraftsPage"
 import OperatorCard from './components/OperatorCard/OperatorCard'
 import AircraftCard from './components/AircraftCard/AircraftCard'
+import HomePage from './pages/HomePage/HomePage'
 
 function App() {
 
@@ -15,7 +15,7 @@ function App() {
     <>
       <div className="App">
 
-        <Navbar />
+        <Navigation />
 
         <Routes>
 
