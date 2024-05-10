@@ -1,8 +1,17 @@
+import AircraftsList from "../../components/AircraftsList/AircraftsList"
+
 const AircraftsPage = () => {
 
     return (
 
-        <h2>Our Fleet</h2>
+        <div className="AircraftsPage">
+
+            <h2>Our Fleet</h2>
+            <AircraftsList />
+
+        </div>
+
+
     )
 }
 
