@@ -1,11 +1,17 @@
-
+import { Container } from "react-bootstrap"
 
 
 
 
 const OperatorDetails = () => {
     return (
-        <div>TODOS LOS DETALLES</div>
+        <>
+
+            <Container>
+                <div>TODOS LOS DETALLES</div>
+
+            </Container>
+        </>
     )
 }
 
