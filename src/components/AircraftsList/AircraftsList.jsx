@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
+import { Row, Col } from "react-bootstrap"
+import { Link } from "react-router-dom"
 import AircraftCard from "../AircraftCard/AircraftCard"
 import axios from "axios"
-import { Container, Row, Col } from "react-bootstrap"
-import { Link } from "react-router-dom"
+
 
 const API_URL = "http://localhost:5005"
 
@@ -26,65 +27,26 @@ const AircraftsList = () => {
 
         <div className="AircraftsList">
 
+            <Row>
 
-            <Container className="mt-5">
-                <h2>Esto es el layout de AIRCRAFTS</h2>
-                <hr />
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, magnam rerum quos voluptas labore provident velit porro temporibus eaque maiores, commodi blanditiis possimus. Et harum voluptas magnam soluta ad quam!</p>
+                {
+                    aircrafts.map(elm => {
 
-                <hr />
+                        return (
+                            <Col md={{ span: 6 }} className="mb-5" key={elm.id}>
 
-                <Row className="mt-5">
-                    <Col md={{ span: 6 }}>
-                        <h3>Algo de info</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi, quae. Sint corporis ad quidem distinctio eveniet! Minima, quod vero libero aliquid incidunt porro hic rerum, fuga maiores eius consequatur nobis?</p>
-                    </Col>
-                    <Col md={{ span: 6 }}>
-                        <h3>Extraaaaaa</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi, quae. Sint corporis ad quidem distinctio eveniet! Minima, quod vero libero aliquid incidunt porro hic rerum, fuga maiores eius consequatur nobis?</p>
-                    </Col>
-                </Row>
+                                <Link to={'/aircrafts/:aircraftId'}>
 
-                <hr />
-
-                <h2>Galería</h2>
-
-                <Row>
-
-                    {
-                        aircrafts &&
-                        aircrafts.map(elm => {
-
-                            return (
-
-                                <Link key={elm.id}>
-
-                                    <div>
-
-                                        <Col md={{ span: 6 }} className="mb-5">
-
-                                            <AircraftCard />
-
-                                        </Col>
-                                    </div>
+                                    <AircraftCard {...elm} />
 
                                 </Link>
 
-                            )
-                        })
-                    }
+                            </Col>
+                        )
+                    })
+                }
 
-                </Row>
-
-            </Container>
-
-
-
-
-
-
-
-
+            </Row>
 
         </div>
     )

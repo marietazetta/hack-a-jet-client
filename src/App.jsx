@@ -8,6 +8,7 @@ import OperatorDetails from './components/OperatorDetails/OperatorDetails'
 import HomePage from './pages/HomePage/HomePage'
 import MembershipPage from './pages/MembershipPage/MembershipPage'
 import AircraftDetails from './components/AircraftDetails/AircraftDetails'
+import AircraftsList from './components/AircraftsList/AircraftsList'
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/operators/:operatorId" element={<OperatorDetails />} />
           <Route path="/aircrafts/:aircraftId" element={<AircraftDetails />} />
           <Route path="/membership" element={<MembershipPage />} />
+
 
 
         </Routes>

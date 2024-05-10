@@ -2,18 +2,19 @@ import { Card } from "react-bootstrap"
 import { Link } from "react-router-dom"
 
 
-const AircraftCard = () => {
+const AircraftCard = ({ id, model }) => {
 
     return (
         <>
 
-            <Link>
+            <Link to={`/aircrafts/${id}`}>
+
                 <div className="AircraftCard">
 
                     <Card >
                         <Card.Img variant="top" src="holder.js/100px160" />
                         <Card.Body>
-                            <Card.Title>Card title</Card.Title>
+                            <Card.Title>{model}</Card.Title>
                             <Card.Text>
                                 This is a longer card with supporting text below as a natural
                                 lead-in to additional content. This content is a little bit
@@ -23,7 +24,9 @@ const AircraftCard = () => {
                     </Card>
 
                 </div>
+
             </Link>
+
 
         </>
     )

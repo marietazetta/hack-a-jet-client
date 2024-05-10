@@ -1,24 +1,49 @@
-import { Card } from "react-bootstrap"
+import axios from "axios"
+import { useState, useEffect } from "react"
+import { Container } from "react-bootstrap"
+import { useParams } from "react-router-dom"
 
 
+const API_URL = "http://localhost:5005"
 
 const AircraftDetails = () => {
+
+    const [aircraft, setAircraft] = useState([])
+
+    const { aircraftId } = useParams()
+
+    useEffect(() => {
+        loadAircraft()
+    }, [])
+
+
+    const loadAircraft = () => {
+        axios
+            .get(`${API_URL}/aircrafts/${aircraftId}`)
+            .then(({ data }) => setAircraft(data))
+            .catch(err => console.log(err))
+    }
 
 
     return (
         <div className="AircraftDetails">
+            <Container>
 
-            <Card >
-                <Card.Img variant="top" src="holder.js/100px160" />
-                <Card.Body>
-                    <Card.Title>Card title</Card.Title>
-                    <Card.Text>
-                        This is a longer card with supporting text below as a natural
-                        lead-in to additional content. This content is a little bit
-                        longer.
-                    </Card.Text>
-                </Card.Body>
-            </Card>
+
+                <img
+                    src={aircraft.images}
+                    alt={aircraft.model}
+                />
+
+                <h3>{aircraft.model}</h3>
+                <h5>{aircraft.manufacturer}</h5>
+                <p>{aircraft.yom}</p>
+                <p>Registration: {aircraft.registration}</p>
+
+
+
+            </Container>
+
 
         </div >
     )
