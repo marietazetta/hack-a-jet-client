@@ -1,5 +1,6 @@
 import axios from "axios"
 import OperatorCard from "../OperatorCard/OperatorCard"
+import './OperatorsList.css'
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { Col, Row, Container } from 'react-bootstrap'
@@ -25,23 +26,21 @@ const OperatorsList = () => {
     return (
         <>
             <div className="OperatorsList">
-                {
-                    operators &&
-                    operators.map((operator) => {
-
-                        return (
-                            <>
-                                <Link to={`${API_URL}/operators/${operator.id}`}>
-                                    <div key={operator.id}>
-                                        <div className="card m-2 p-2 text-center" style={{ width: "24rem", height: "18rem" }}>
+                <Row >
+                    {
+                        operators &&
+                        operators.map((operator) => {
+                            return (
+                                <>
+                                    <Col md={{ span: 12 }} key={operator.id}>
+                                        <Link to={`/operators/${operator.id}`}>
                                             <OperatorCard {...operator} />
-
-                                        </div>
-                                    </div>
-                                </Link>
-                            </>
-                        );
-                    })}
+                                        </Link>
+                                    </Col>
+                                </>
+                            );
+                        })}
+                </Row>
             </div >
             <div className="OperatorsList">
             </div>
