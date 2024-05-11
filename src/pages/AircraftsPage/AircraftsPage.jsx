@@ -8,7 +8,7 @@ const AircraftsPage = () => {
         <div className="AircraftsPage">
 
             <Container className="mt-5">
-                <h2>Esto es el layout de AIRCRAFTS</h2>
+                <h2>OUR FLEET</h2>
                 <hr />
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, magnam rerum quos voluptas labore provident velit porro temporibus eaque maiores, commodi blanditiis possimus. Et harum voluptas magnam soluta ad quam!</p>
 
@@ -27,7 +27,6 @@ const AircraftsPage = () => {
 
                 <hr />
 
-                <h2>Galería</h2>
 
                 <AircraftsList />
 
