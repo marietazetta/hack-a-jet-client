@@ -28,24 +28,21 @@ const AircraftsList = () => {
         <div className="AircraftsList">
 
             <Row>
+                {aircrafts.map(elm => {
 
-                {
-                    aircrafts.map(elm => {
+                    return (
+                        <Col md={{ span: 6 }} className="mb-5" key={elm.id}>
 
-                        return (
-                            <Col md={{ span: 6 }} className="mb-5" key={elm.id}>
+                            {/* <Link to={'/aircrafts/:aircraftId'}> */}
 
-                                <Link to={'/aircrafts/:aircraftId'}>
+                            <AircraftCard {...elm} />
 
-                                    <AircraftCard {...elm} />
+                            {/* {</Link>} */}
 
-                                </Link>
-
-                            </Col>
-                        )
-                    })
+                        </Col>
+                    )
+                })
                 }
-
             </Row>
 
         </div>

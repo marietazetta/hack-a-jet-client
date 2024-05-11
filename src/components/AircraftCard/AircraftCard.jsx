@@ -1,4 +1,4 @@
-import { Card } from "react-bootstrap"
+import { Card, Button } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import './AircraftCard.css'
 
@@ -8,24 +8,28 @@ const AircraftCard = ({ id, model, description, main_image }) => {
 
     return (
         <>
+            <div className="AircraftCard">
 
-            <Link to={`/aircrafts/${id}`}>
-
-                <div className="AircraftCard">
-
-                    <Card >
+                <Card >
+                    <Link to={`/aircrafts/${id}`}>
                         <Card.Img variant="top" src={main_image} />
-                        <Card.Body>
-                            <Card.Title>{model}</Card.Title>
-                            <Card.Text>
-                                {description}
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
+                    </Link>
+                    <Card.Body>
+                        <Card.Title>{model}</Card.Title>
+                        <Card.Text>
+                            {description}
+                        </Card.Text>
+                        <Link to={`/aircrafts/${id}`}>
+                            <Button variant="secondary" size="lg">
+                                Details
+                            </Button>
+                        </Link>
+                    </Card.Body>
 
-                </div>
+                </Card>
 
-            </Link>
+            </div>
+
 
 
         </>

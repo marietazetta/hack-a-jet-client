@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
-import { Col, Container, Row, ListGroup } from "react-bootstrap"
-import { useParams } from "react-router-dom"
+import { Col, Container, Row, ListGroup, Button } from "react-bootstrap"
+import { useParams, Link } from "react-router-dom"
 
 
 const API_URL = "http://localhost:5005"
@@ -62,6 +62,10 @@ const AircraftDetails = () => {
                             </ul>
 
                         </ListGroup>
+
+                        <Link to="/aircrafts" >
+                            <Button variant="outline-secondary">Back</Button>
+                        </Link>
 
                     </Col>
 
