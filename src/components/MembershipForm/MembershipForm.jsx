@@ -89,7 +89,7 @@ const MembershipForm = () => {
                             type="switch"
                             id="custom-switch"
                             name="transfer"
-                            value={operatorData.services.transfers}
+                            value={operatorData.services.transfer}
                             label="Transfer service"
                         />
                     </Form.Group>

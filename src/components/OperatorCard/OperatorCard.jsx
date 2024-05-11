@@ -9,7 +9,7 @@ const OperatorCard = ({ company, logo, id }) => {
         <div className="OperatorCard mt-5">
             <Container>
                 <Card>
-                    <Card.Img variant="top" src="./src\assets\HackAJet.jpg" />
+                    <Card.Img variant="top" src={logo} />
                     <Card.Body>
                         <Card.Text>
                             {company}

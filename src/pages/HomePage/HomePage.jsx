@@ -17,7 +17,7 @@ const HomePage = () => {
                 <p>Our exclusive network of partners shares our passion for providing unparalleled service and creating unforgettable journeys. </p>
 
                 <p> If your company is ready to elevate its offerings and cater to the most discerning clientele, we invite you to apply to join our esteemed network.</p>
-
+                <br />
                 <h4>Benefits of Partnership: </h4>
                 <ul>
                     <li>Access to a global network of affluent clientele</li>
@@ -25,7 +25,9 @@ const HomePage = () => {
                     <li>Marketing and promotional support from Hack a Jet</li>
                     <li>Dedicated account manager to assist with your needs</li>
                 </ul>
+                <br />
                 <h4>Partnership Requirements:</h4>
+
                 <ul>
                     <li>Proven track record of providing exceptional luxury jet services</li>
                     <li>Commitment to safety, reliability, and customer satisfaction</li>
