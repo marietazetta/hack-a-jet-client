@@ -3,7 +3,7 @@ import OperatorCard from "../OperatorCard/OperatorCard"
 import './OperatorsList.css'
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { Col, Row, Container } from 'react-bootstrap'
+import { Col, Row } from 'react-bootstrap'
 
 
 const API_URL = 'http://localhost:5005'
@@ -32,11 +32,13 @@ const OperatorsList = () => {
                         operators.map((operator) => {
                             return (
                                 <>
-                                    <Col md={{ span: 12 }} key={operator.id}>
-                                        <Link to={`/operators/${operator.id}`}>
-                                            <OperatorCard {...operator} />
-                                        </Link>
-                                    </Col>
+                                    <div key={operator.id}>
+                                        <Col md={{ span: 12 }}>
+                                            <Link to={`/operators/${operator.id}`}>
+                                                <OperatorCard {...operator} />
+                                            </Link>
+                                        </Col>
+                                    </div>
                                 </>
                             );
                         })}

@@ -5,10 +5,6 @@ import './OperatorCard.css'
 const OperatorCard = ({ company, logo, id }) => {
 
 
-
-
-
-
     return (
         <>
             <Link to={`/operators/${id}`}>

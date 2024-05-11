@@ -1,17 +1,55 @@
-import { Container } from "react-bootstrap"
+import axios from "axios"
+import { useState, useEffect } from "react"
+import { Container, ListGroup, Button } from "react-bootstrap"
+import { Link, useParams } from "react-router-dom"
 
 
 
+const API_URL = "http://localhost:5005"
 
 const OperatorDetails = () => {
+
+    const [operator, setOperator] = useState([])
+
+    const { operatorId } = useParams()
+
+    useEffect(() => {
+        loadOperator()
+    }, [])
+
+
+    const loadOperator = () => {
+        axios
+            .get(`${API_URL}/operators/${operatorId}`)
+            .then(({ data }) => setOperator(data))
+            .catch(err => console.log(err))
+    }
+
+
+    console.log(operator.services?.lounge)
+
     return (
-        <>
+        <div className="operatorDetails OperatorDetails">
+            <Container className="mt-5">
 
-            <Container>
-                <div>TODOS LOS DETALLES</div>
+                <ListGroup>
+                    <img
+                        src={operator.logo}
+                    />
 
+                    <h3>{operator.company}</h3>
+                    <h5>{operator.description}</h5>
+                    <ul>
+                        <li>{operator.services?.lounge ? "lounge available" : "no lounge available"}
+                            <img src="" alt="" /></li>
+                        <li>{operator.services?.transfer ? "transfer available" : "no lounge available"}</li>
+                    </ul>
+                </ListGroup>
+                <Link to='/'>
+                    <Button variant="outline-secondary">Add an aircraft</Button>
+                </Link>
             </Container>
-        </>
+        </div >
     )
 }
 
