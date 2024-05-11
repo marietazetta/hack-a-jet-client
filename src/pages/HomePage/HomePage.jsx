@@ -5,7 +5,7 @@ const HomePage = () => {
 
     return (
         <>
-            <Container>
+            <Container className="mt-5">
                 <div>
                     <h1>Homepage</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -14,7 +14,7 @@ const HomePage = () => {
                 </div>
             </Container>
         </>
-    ) 
-} 
+    )
+}
 
 export default HomePage
