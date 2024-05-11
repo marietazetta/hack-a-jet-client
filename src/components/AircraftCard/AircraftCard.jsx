@@ -1,8 +1,10 @@
 import { Card } from "react-bootstrap"
 import { Link } from "react-router-dom"
+import './AircraftCard.css'
 
 
-const AircraftCard = ({ id, model }) => {
+
+const AircraftCard = ({ id, model, description, main_image }) => {
 
     return (
         <>
@@ -12,13 +14,11 @@ const AircraftCard = ({ id, model }) => {
                 <div className="AircraftCard">
 
                     <Card >
-                        <Card.Img variant="top" src="holder.js/100px160" />
+                        <Card.Img variant="top" src={main_image} />
                         <Card.Body>
                             <Card.Title>{model}</Card.Title>
                             <Card.Text>
-                                This is a longer card with supporting text below as a natural
-                                lead-in to additional content. This content is a little bit
-                                longer.
+                                {description}
                             </Card.Text>
                         </Card.Body>
                     </Card>
