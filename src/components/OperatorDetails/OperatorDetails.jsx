@@ -42,7 +42,7 @@ const OperatorDetails = () => {
                         <li>{operator.services?.transfer ? "transfer available" : "no lounge available"}</li>
                     </ul>
                 </ListGroup>
-                <Link to='/membership'>
+                <Link to='/new-aircraft'>
                     <Button variant="outline-secondary">Add an aircraft</Button>
                 </Link>
             </Container>

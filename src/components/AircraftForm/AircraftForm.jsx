@@ -21,12 +21,12 @@ const AircraftForm = () => {
         homebase: '',
         catering: '',
         description: '',
+    })
 
-        services: {
-            flight_attendant: false,
-            wifi: false,
-            telephone: false,
-        }
+    const [servicesData, setServicesData] = useState({
+        flight_attendant: false,
+        wifi: false,
+        telephone: false,
     })
 
     const handleInputChange = event => {
@@ -34,16 +34,28 @@ const AircraftForm = () => {
         setAircraftData({
             ...aircraftData,
             [name]: value,
-
-
         })
+    }
+
+    const handleServiceSelect = event => {
+        const { value, checked } = event.target
+        setServicesData({
+            ...servicesData,
+            [value]: checked
+        })
+
     }
 
     const handleAircraftFormSubmit = e => {
         e.preventDefault()
 
+        const aircraft = {
+            ...aircraftData,
+            services: servicesData
+        }
+
         axios
-            .post(`${API_URL}/aircrafts`, aircraftData)
+            .post(`${API_URL}/aircrafts`, aircraft)
             .then(() => navigate('/aircrafts'))
             .catch(err => console.log(err))
     }
@@ -156,24 +168,24 @@ const AircraftForm = () => {
                     label="Flight Attendant"
                     name="services"
                     value="flight_attendant"
-                    checked={aircraftData.services.flight_attendant}
-                    onChange={handleInputChange}
+                    checked={servicesData.flight_attendant}
+                    onChange={handleServiceSelect}
                 />
                 <Form.Check
                     type="checkbox"
                     label="Wi-Fi"
                     name="services"
                     value="wifi"
-                    checked={aircraftData.services.wifi}
-                    onChange={handleInputChange}
+                    checked={servicesData.wifi}
+                    onChange={handleServiceSelect}
                 />
                 <Form.Check
                     type="checkbox"
                     label="Telephone"
                     name="services"
                     value="telephone"
-                    checked={aircraftData.services.telephone}
-                    onChange={handleInputChange}
+                    checked={servicesData.telephone}
+                    onChange={handleServiceSelect}
                 />
             </Form.Group>
 
