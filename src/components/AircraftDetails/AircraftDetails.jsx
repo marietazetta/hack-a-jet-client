@@ -1,7 +1,9 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 import { Col, Container, Row, ListGroup, Button } from "react-bootstrap"
-import { useParams, Link } from "react-router-dom"
+import { useParams, useNavigate, Link } from "react-router-dom"
+import AircraftsList from './../AircraftsList/AircraftsList'
+import EditAircraftPage from "../../pages/EditAircraftPage/EditAircraftPage"
 
 
 const API_URL = "http://localhost:5005"
@@ -10,12 +12,14 @@ const AircraftDetails = () => {
 
     const [aircraft, setAircraft] = useState([])
 
+
     const { aircraftId } = useParams()
 
     useEffect(() => {
         loadAircraft()
     }, [])
 
+    const navigate = useNavigate()
 
     const loadAircraft = () => {
         axios
@@ -24,57 +28,78 @@ const AircraftDetails = () => {
             .catch(err => console.log(err))
     }
 
+    const deleteAircraft = () => {
+        axios
+            .delete(`${API_URL}/aircrafts/${aircraftId}`)
+            .then(() => navigate('/aircrafts'))
+            .catch((error) => console.log(error))
+    }
 
     return (
-        <div className="AircraftDetails">
-            <Container className="mt-5">
 
-                <Row>
+        <>
 
-                    <Col md={{ span: 6 }}>
-                        <img
-                            src={aircraft.images}
-                            alt={aircraft.model}
-                        />
-                    </Col>
+            <div className="AircraftDetails">
 
-                    <Col md={{ span: 6 }}>
+                <Container className="mt-5">
 
-                        <h2>{aircraft.model}</h2>
-                        <h5>{aircraft.manufacturer}</h5>
-                        <h6>Homebase: {aircraft.homebase}</h6>
-                        <Row>
-                            <p>Year of Make - {aircraft.yom}</p>
-                            <p>Registration: {aircraft.registration}</p>
-                        </Row>
-                        <p>Passenger Capacity: {aircraft.pax_capacity}</p>
-                        <p>Range: {aircraft.range}</p>
-                        <p>Catering: {aircraft.catering}</p>
+                    <Row>
 
-                        <ListGroup>
+                        <Col md={{ span: 6 }}>
+                            <img
+                                src={aircraft.images}
+                                alt={aircraft.model}
+                            />
+                        </Col>
 
-                            <p>Services</p>
-                            <ul>
-                                <li>Flight Attendant: {aircraft.services?.flight_attendant ? " Included " : "Not included"}</li>
-                                <li>Wi-Fi: {aircraft.services?.wifi ? " Included " : "Not included"}</li>
-                                <li>Telephone: {aircraft.services?.telephone ? " Included " : "Not included"}</li>
+                        <Col md={{ span: 6 }}>
 
-                            </ul>
+                            <h2>{aircraft.model}</h2>
+                            <h5>{aircraft.manufacturer}</h5>
+                            <h6>Homebase: {aircraft.homebase}</h6>
+                            <Row>
+                                <p>Year of Make - {aircraft.yom}</p>
+                                <p>Registration: {aircraft.registration}</p>
+                            </Row>
+                            <p>Passenger Capacity: {aircraft.pax_capacity}</p>
+                            <p>Range: {aircraft.range}</p>
+                            <p>Catering: {aircraft.catering}</p>
 
-                        </ListGroup>
+                            <ListGroup>
 
-                        <Link to="/aircrafts" >
-                            <Button variant="outline-secondary">Back</Button>
-                        </Link>
+                                <p>Services</p>
+                                <ul>
+                                    <li>Flight Attendant: {aircraft.services?.flight_attendant ? " Included " : "Not included"}</li>
+                                    <li>Wi-Fi: {aircraft.services?.wifi ? " Included " : "Not included"}</li>
+                                    <li>Telephone: {aircraft.services?.telephone ? " Included " : "Not included"}</li>
 
-                    </Col>
+                                </ul>
 
-                </Row>
+                            </ListGroup>
 
-            </Container>
+                            <Link to="/aircrafts" >
+                                <Button variant="outline-secondary">Back</Button>
+                            </Link>
+
+                            <Link to="/aircrafts" >
+                                <Button onClick={deleteAircraft} variant="outline-secondary">Delete</Button>
+                            </Link>
+
+                            <Link to={`/aircrafts/edit/${aircraftId}`}>
+                                <Button variant="outline-secondary">Edit</Button>
+                            </Link>
 
 
-        </div >
+
+                        </Col>
+
+                    </Row>
+
+                </Container>
+
+
+            </div >
+        </>
     )
 }
 export default AircraftDetails

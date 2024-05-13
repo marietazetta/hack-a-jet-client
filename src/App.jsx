@@ -10,6 +10,8 @@ import MembershipPage from './pages/MembershipPage/MembershipPage'
 import AircraftDetails from './components/AircraftDetails/AircraftDetails'
 import AircraftsList from './components/AircraftsList/AircraftsList'
 import AddAircraftPage from './pages/AddAircraftPage/AddAircraftPage'
+import EditAircraftPage from './pages/EditAircraftPage/EditAircraftPage'
+import EditOperatorPage from './pages/EditOperatorPage/EditOperatorPage'
 
 function App() {
 
@@ -29,6 +31,8 @@ function App() {
           <Route path="/aircrafts/:aircraftId" element={<AircraftDetails />} />
           <Route path="/membership" element={<MembershipPage />} />
           <Route path="/new-aircraft" element={<AddAircraftPage />} />
+          <Route path="/aircrafts/edit/:aircraftId" element={<EditAircraftPage />} />
+          <Route path="/operators/edit/:operatorId" element={<EditOperatorPage />} />
 
 
 

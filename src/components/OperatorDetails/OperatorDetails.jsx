@@ -45,6 +45,9 @@ const OperatorDetails = () => {
                 <Link to='/new-aircraft'>
                     <Button variant="outline-secondary">Add an aircraft</Button>
                 </Link>
+                <Link to={`/operators/edit/${operatorId}`}>
+                    <Button variant="outline-secondary">Edit</Button>
+                </Link>
             </Container>
         </div >
     )
