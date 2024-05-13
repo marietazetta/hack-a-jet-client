@@ -30,7 +30,7 @@ const AircraftForm = () => {
     })
 
     const handleInputChange = event => {
-        const { name, value, } = event.target
+        const { name, value } = event.target
         setAircraftData({
             ...aircraftData,
             [name]: value,

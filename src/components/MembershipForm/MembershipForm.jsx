@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState } from "react"
 import { Form, Row, Col, Button, Container, InputGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
@@ -13,11 +13,14 @@ const MembershipForm = () => {
         company: '',
         logo: '',
         description: '',
-        services: {
-            lounge: '',
-            transfer: '',
-        }
     })
+
+
+    const [servicesData, setServicesData] = useState({
+        lounge: false,
+        transfer: false,
+    })
+
 
     const navigate = useNavigate()
 
@@ -26,15 +29,33 @@ const MembershipForm = () => {
         setOperatorData({ ...operatorData, [name]: value })
     }
 
+    const handleServices = e => {
+        const { value, checked } = e.target
+        setServicesData({
+            ...servicesData, [value]: checked
+        })
+    }
+
+
     const handleOperatorFormSubmit = e => {
 
         e.preventDefault()
 
+        const operator = {
+            ...operatorData,
+            services: servicesData
+        }
+
         axios
-            .post(`${API_URL}/operators`, operatorData)
+            .post(`${API_URL}/operators`, operator)
             .then(() => navigate('/operators'))
             .catch(err => console.log(err))
     }
+
+
+
+
+
 
     return (
         <Container key={operatorData.id}>
@@ -61,7 +82,6 @@ const MembershipForm = () => {
                     </Form.Group>
                 </Row>
 
-
                 <InputGroup>
                     <InputGroup.Text>Description</InputGroup.Text>
                     <Form.Control as="textarea"
@@ -71,29 +91,26 @@ const MembershipForm = () => {
                         onChange={handleInputChange} />
                 </InputGroup>
 
-                <Row className="mb-3">
-                    <Form.Group as={Col} controlId="formGridLounge">
-                        <Form.Check
-                            type="switch"
-                            id="custom-switch"
-                            name="lounge"
-                            value={operatorData.services.lounge}
-                            label="Lounge"
-                            onChange={handleInputChange}
-                        />
-                    </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Services</Form.Label>
+                    <Form.Check
 
-
-                    <Form.Group as={Col} controlId="formGridTransfer">
-                        <Form.Check
-                            type="switch"
-                            id="custom-switch"
-                            name="transfer"
-                            value={operatorData.services.transfer}
-                            label="Transfer service"
-                        />
-                    </Form.Group>
-                </Row>
+                        value="transfer"
+                        type="checkbox"
+                        name="transfer"
+                        checked={servicesData.transfer}
+                        label="Transfer service"
+                        onChange={handleServices}
+                    />
+                    <Form.Check
+                        value="lounge"
+                        type="checkbox"
+                        name="lounge"
+                        checked={servicesData.lounge}
+                        label="Lounge"
+                        onChange={handleServices}
+                    />
+                </Form.Group>
 
                 <Form.Group className="mb-3" id="formGridCheckbox">
                     <Form.Check type="checkbox" label="Agree to the terms and conditions" />
@@ -103,7 +120,7 @@ const MembershipForm = () => {
                     Submit
                 </Button>
             </Form>
-        </Container>
+        </Container >
 
     )
 }

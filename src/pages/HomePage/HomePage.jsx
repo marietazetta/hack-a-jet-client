@@ -35,7 +35,11 @@ const HomePage = () => {
                     <li>Experienced and highly qualified crew</li>
                 </ul>
             </Container>
+
         </div>
+
+
+
 
     )
 }
