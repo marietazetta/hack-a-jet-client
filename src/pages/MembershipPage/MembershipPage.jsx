@@ -27,4 +27,3 @@ const MembershipPage = () => {
 }
 
 export default MembershipPage
-export default MembershipPage
