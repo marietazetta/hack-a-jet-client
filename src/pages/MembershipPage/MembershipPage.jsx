@@ -1,5 +1,4 @@
 import { Container } from "react-bootstrap"
-import { Container } from "react-bootstrap"
 import MembershipForm from "../../components/MembershipForm/MembershipForm"
 
 const MembershipPage = () => {
@@ -35,8 +34,8 @@ const MembershipPage = () => {
                 </Container>
                 <MembershipForm />
             </div>
-
-            )
+        </div>
+    )
 }
 
-            export default MembershipPage
+export default MembershipPage
