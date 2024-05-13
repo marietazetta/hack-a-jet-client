@@ -6,26 +6,18 @@ const OperatorCard = ({ company, logo, id }) => {
 
 
     return (
-        <>
-            <Link to={`/operators/${id}`}>
-                <div className="OperatorCard">
-                    <h2>
-                        <Container>
-                            <Card>
-                                <Card.Img variant="top" src="./src\assets\HackAJet.jpg" />
-                                <Card.Body>
-                                    <Card.Text>
-                                        {company}
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Container>
-                    </h2>
-
-                </div>
-            </Link>
-
-        </>
+        <div className="OperatorCard mt-5">
+            <Container>
+                <Card>
+                    <Card.Img variant="top" src={logo} />
+                    <Card.Body>
+                        <Card.Text>
+                            {company}
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
+            </Container>
+        </div>
 
     )
 }

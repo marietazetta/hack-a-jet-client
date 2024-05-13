@@ -6,12 +6,17 @@ const OperatorsPage = () => {
 
     return (
         <>
-            <Container>
-                <div className="OperatorsPage">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                        Est eveniet error quo quidem eos nobis expedita doloribus iusto. Nobis voluptatibus non cumque, aliquam autem aperiam saepe unde facere aut commodi.</p>
+            <div className="OperatorsPage mt-5">
+                <Container>
+                    <h3>Elevate Your Travel Experience with Our Private Jet Charter Partners</h3>
+                    <p>Soar to new heights of luxury and convenience with our curated selection of private jet charter partners.
+                        Whether you're seeking a quick business getaway or an unforgettable family vacation, our trusted partners
+                        offer a wide range of aircraft and personalized services to exceed your expectations.</p>
                     <OperatorsList />
-                </div>
+                </Container>
+            </div>
+            <Container>
+
             </Container>
         </>
     )

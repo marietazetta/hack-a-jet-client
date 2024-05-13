@@ -25,9 +25,6 @@ const OperatorDetails = () => {
             .catch(err => console.log(err))
     }
 
-
-    console.log(operator.services?.lounge)
-
     return (
         <div className="operatorDetails OperatorDetails">
             <Container className="mt-5">
@@ -45,7 +42,7 @@ const OperatorDetails = () => {
                         <li>{operator.services?.transfer ? "transfer available" : "no lounge available"}</li>
                     </ul>
                 </ListGroup>
-                <Link to='/'>
+                <Link to='/membership'>
                     <Button variant="outline-secondary">Add an aircraft</Button>
                 </Link>
             </Container>
