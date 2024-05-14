@@ -37,6 +37,7 @@ const OperatorDetailsPage = () => {
                     ?
                     <Spinner animation="grow" variant="dark" />
                     :
+
                     <div>
                         <ListGroup className="mt-5">
                             <ListGroup.Item><img
