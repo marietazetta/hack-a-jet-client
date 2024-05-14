@@ -3,7 +3,7 @@ import OperatorCard from "../OperatorCard/OperatorCard"
 import './OperatorsList.css'
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { Col, Container, Row } from 'react-bootstrap'
+import { Spinner } from 'react-bootstrap'
 
 
 const API_URL = 'http://localhost:5005'
@@ -11,6 +11,7 @@ const API_URL = 'http://localhost:5005'
 const OperatorsList = () => {
 
     const [operators, setOperators] = useState([])
+    const [isLoading, setIsloading] = useState([])
 
     useEffect(() => {
         loadOperators()
@@ -19,7 +20,10 @@ const OperatorsList = () => {
     const loadOperators = () => {
         axios
             .get(`${API_URL}/operators`)
-            .then(({ data }) => setOperators(data))
+            .then(({ data }) => {
+                setOperators(data)
+                setIsloading(false)
+            })
             .catch(err => console.log(err))
     }
 
@@ -27,15 +31,19 @@ const OperatorsList = () => {
 
         <div className="OperatorsList">
             {
-                operators.map((operator) => {
-                    return (
-                        <div key={operator.id}>
-                            <Link to={`/operators/${operator.id}`}>
-                                <OperatorCard {...operator} />
-                            </Link>
-                        </div>
-                    );
-                })}
+                isLoading
+                    ?
+                    <Spinner animation="grow" variant="dark" />
+                    :
+                    operators.map((operator) => {
+                        return (
+                            <div key={operator.id}>
+                                <Link to={`/operators/${operator.id}`}>
+                                    <OperatorCard {...operator} />
+                                </Link>
+                            </div>
+                        );
+                    })}
         </div >
     )
 }

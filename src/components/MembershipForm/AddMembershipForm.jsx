@@ -117,7 +117,12 @@ const AddMembershipForm = () => {
                     Submit
                 </Button>
             </Form>
-            <Link to="/operators">back</Link>
+
+            <Link to="/operators">
+                <Button variant="dark" type="submit">
+                    Back
+                </Button>
+            </Link>
         </div>
 
 

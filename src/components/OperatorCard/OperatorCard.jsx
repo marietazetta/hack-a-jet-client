@@ -1,8 +1,7 @@
-import { Link } from "react-router-dom"
-import { Card, Container } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import './OperatorCard.css'
 
-const OperatorCard = ({ company, logo, id }) => {
+const OperatorCard = ({ company, logo }) => {
 
     return (
         <div className="OperatorCard mt-5">

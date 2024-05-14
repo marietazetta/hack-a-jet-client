@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
-import { Row, Col } from "react-bootstrap"
-import { Link } from "react-router-dom"
+import { Row, Col, Spinner } from "react-bootstrap"
 import AircraftCard from "../AircraftCard/AircraftCard"
 import axios from "axios"
 
@@ -10,6 +9,7 @@ const API_URL = "http://localhost:5005"
 const AircraftsList = () => {
 
     const [aircrafts, setAircrafts] = useState([])
+    const [isLoading, setIsloading] = useState([])
 
     useEffect(() => {
         loadAircrafts()
@@ -19,32 +19,36 @@ const AircraftsList = () => {
     const loadAircrafts = () => {
         axios
             .get(`${API_URL}/aircrafts`)
-            .then(({ data }) => setAircrafts(data))
+            .then(({ data }) => {
+                setAircrafts(data)
+                setIsloading(false)
+            })
             .catch(err => console.log(err))
     }
 
     return (
 
         <div className="AircraftsList">
+            {
+                isLoading
+                    ?
+                    <Spinner animation="grow" variant="dark" />
+                    :
+                    <Row>
+                        {aircrafts.map(aircraft => {
 
-            <Row>
-                {aircrafts.map(aircraft => {
+                            return (
+                                <Col md={{ span: 6 }} className="mb-5" key={aircraft.id}>
 
-                    return (
-                        <Col md={{ span: 6 }} className="mb-5" key={aircraft.id}>
+                                    <AircraftCard {...aircraft} />
 
-                            {/* <Link to={'/aircrafts/:aircraftId'}> */}
+                                </Col>
+                            )
+                        })
+                        }
+                    </Row>
 
-                            <AircraftCard {...aircraft} />
-
-                            {/* {</Link>} */}
-
-                        </Col>
-                    )
-                })
-                }
-            </Row>
-
+            }
         </div>
     )
 }
