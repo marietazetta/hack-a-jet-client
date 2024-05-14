@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 import AircraftCard from "../AircraftCard/AircraftCard"
-import { Row, Col } from "react-bootstrap"
+import { Row, Col, Spinner } from "react-bootstrap"
 
 const API_URL = "http://localhost:5005"
 const embed = "?_embed=aircrafts"
@@ -9,6 +9,7 @@ const embed = "?_embed=aircrafts"
 const OperatorAircraftList = ({ operatorId }) => {
 
     const [aircraft, setAircraft] = useState([])
+    const [isLoading, setIsloading] = useState(true)
 
     useEffect(() => {
         loadAircraft()
@@ -18,27 +19,36 @@ const OperatorAircraftList = ({ operatorId }) => {
     const loadAircraft = (id) => {
         axios
             .get(`${API_URL}/operators/${(operatorId)}${embed}`)
-            .then(({ data }) => setAircraft(data.aircrafts))
+            .then(({ data }) => {
+                setAircraft(data.aircrafts)
+                setIsloading(false)
+            })
             .catch(err => console.log(err))
     }
 
 
     return (
         <div className="AircraftDetails">
-            <Row>
-                {
-                    aircraft.map(elm => {
+            {
+                isLoading
+                    ?
+                    <Spinner animation="grow" variant="dark" />
+                    :
+                    <Row>
+                        {
+                            aircraft.map(elm => {
 
-                        return (
-                            <Col md={{ span: 6 }} className="mb-5" key={elm.id}>
+                                return (
+                                    <Col md={{ span: 6 }} className="mb-5" key={elm.id}>
 
-                                <AircraftCard {...elm} />
+                                        <AircraftCard {...elm} />
 
-                            </Col>
-                        )
-                    })
-                }
-            </Row>
+                                    </Col>
+                                )
+                            })
+                        }
+                    </Row>
+            }
 
         </div >
     )

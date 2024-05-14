@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
-import { Container, ListGroup, Button } from "react-bootstrap"
+import { ListGroup, Button, Spinner } from "react-bootstrap"
 import { Link, useParams } from "react-router-dom"
 import OperatorAircraftList from "./../../components/OperatorAircraftsList/OperatorAircraftList"
 
@@ -33,42 +33,42 @@ const OperatorDetailsPage = () => {
     return (
         <div className="operatorDetails OperatorDetails">
             {
-                // isLoading
-                //     ?
-                //     <Spinner animation="grow" variant="dark" />
-                //     :
+                isLoading
+                    ?
+                    <Spinner animation="grow" variant="dark" />
+                    :
+                    <div>
+                        <ListGroup className="mt-5">
+                            <ListGroup.Item><img
+                                src={operator.logo}
+                            /></ListGroup.Item>
 
-                <div>
-                    <ListGroup className="mt-5">
-                        <ListGroup.Item><img
-                            src={operator.logo}
-                        /></ListGroup.Item>
+                            <ListGroup.Item className="mt-5">{operator.company}</ListGroup.Item>
 
-                        <ListGroup.Item className="mt-5">{operator.company}</ListGroup.Item>
-
-                        <ListGroup.Item className="mt-5">{operator.description}</ListGroup.Item>
-                        <ul>
-                            <li>
-                                {operator.services?.lounge ? "lounge available" : "no lounge available"}
-                                <img src="" alt="" />
-                            </li>
-                            <li>
-                                {operator.services?.transfer ? "transfer available" : "no lounge available"}
-                            </li>
-                        </ul>
+                            <ListGroup.Item className="mt-5">{operator.description}</ListGroup.Item>
+                            <ul>
+                                <li>
+                                    {operator.services?.lounge ? "lounge available" : "no lounge available"}
+                                    <img src="" alt="" />
+                                </li>
+                                <li>
+                                    {operator.services?.transfer ? "transfer available" : "no lounge available"}
+                                </li>
+                            </ul>
 
 
-                    </ListGroup>
+                        </ListGroup>
 
-                    <OperatorAircraftList operatorId={operator.id} />
+                        <OperatorAircraftList operatorId={operator.id} />
 
-                    <Link to={`/new-aircraft/operator/${operatorId}`}>
-                        <Button variant="outline-secondary" >Add an aircraft</Button>
-                    </Link>
-                    <Link to={`/operators/edit/${operatorId}`}>
-                        <Button variant="outline-secondary">Edit</Button>
-                    </Link>
-                </div >
+                        <Link to={`/new-aircraft/operator/${operatorId}`}>
+                            <Button variant="outline-secondary" >Add an aircraft</Button>
+                        </Link>
+                        <Link to={`/operators/edit/${operatorId}`}>
+                            <Button variant="outline-secondary">Edit</Button>
+                        </Link>
+                    </div>
+
             }
         </div >
     )
