@@ -2,6 +2,7 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import { Container, ListGroup, Button } from "react-bootstrap"
 import { Link, useParams } from "react-router-dom"
+import OperatorAircraftList from "../OperatorAircraftsList/OperatorAircraftList"
 
 
 
@@ -42,12 +43,16 @@ const OperatorDetails = () => {
                         <li>{operator.services?.transfer ? "transfer available" : "no lounge available"}</li>
                     </ul>
                 </ListGroup>
+
+                <OperatorAircraftList />
+
                 <Link to='/new-aircraft'>
                     <Button variant="outline-secondary">Add an aircraft</Button>
                 </Link>
                 <Link to={`/operators/edit/${operatorId}`}>
                     <Button variant="outline-secondary">Edit</Button>
                 </Link>
+
             </Container>
         </div >
     )
