@@ -21,8 +21,7 @@ const AddAircraftForm = () => {
         range: 0,
         homebase: '',
         catering: '',
-        description: '',
-        operatorId: ''
+        description: ''
     })
 
     const [servicesData, setServicesData] = useState({
@@ -70,7 +69,8 @@ const AddAircraftForm = () => {
 
         const aircraft = {
             ...aircraftData,
-            services: servicesData
+            services: servicesData,
+            operatorId: operatorId
         }
 
         axios
