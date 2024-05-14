@@ -43,7 +43,7 @@ const EditMembershipForm = () => {
         const { name, value } = event.target
         setOperatorData({
             ...operatorData,
-            [name]: value,
+            [name]: value
         })
     }
 
@@ -60,13 +60,13 @@ const EditMembershipForm = () => {
 
         e.preventDefault()
 
-        const operatorData = {
-            ...servicesData,
+        const operatorDataEdit = {
+            ...operatorData,
             services: servicesData
         }
 
         axios
-            .put(`${API_URL}/operators/${operatorId}`, operatorData, servicesData)
+            .put(`${API_URL}/operators/${operatorId}`, operatorDataEdit, servicesData)
             .then(() => navigate(`/operators/${operatorId}`))
             .catch(err => console.log(err))
     }
@@ -75,7 +75,6 @@ const EditMembershipForm = () => {
     return (
 
         <div className="EditOperatorPage">
-
 
             <Form onSubmit={handleOperatorFormSubmit}>
                 <Row className="mb-3">
@@ -86,9 +85,7 @@ const EditMembershipForm = () => {
                             name="company"
                             placeholder="Ex. NetJets"
                             value={operatorData.company}
-                            onChange={handleInputChange}
-                            disabled
-                            readOnly />
+                            onChange={handleInputChange} />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridPassword">
