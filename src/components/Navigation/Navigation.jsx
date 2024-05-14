@@ -17,7 +17,7 @@ const Navigation = () => {
                         </Link>
 
                         <Nav className="me-auto">
-                            <Link to="/members">
+                            <Link to="/operators">
                                 <Nav.Link href="/operators" as="span">Operators</Nav.Link>
                             </Link>
 

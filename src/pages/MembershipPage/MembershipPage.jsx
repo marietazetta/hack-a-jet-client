@@ -1,5 +1,6 @@
 import { Container } from "react-bootstrap"
-import MembershipForm from "../../components/MembershipForm/MembershipForm"
+import AddMembershipForm from "../../components/MembershipForm/AddMembershipForm"
+
 
 const MembershipPage = () => {
 
@@ -18,7 +19,7 @@ const MembershipPage = () => {
 
                 <hr />
 
-                <MembershipForm />
+                <AddMembershipForm />
 
             </Container>
 

@@ -10,8 +10,6 @@ const OperatorAircraftList = ({ operatorId }) => {
 
     const [aircraft, setAircraft] = useState([])
 
-    const { aircraftId } = useParams()
-
     useEffect(() => {
         loadAircraft()
     }, [operatorId])
@@ -20,7 +18,7 @@ const OperatorAircraftList = ({ operatorId }) => {
     const loadAircraft = (id) => {
         axios
             .get(`${API_URL}/operators/${(operatorId)}${embed}`)
-            .then(({ data }) => setAircraft(data))
+            .then(({ data }) => setAircraft(data.aircrafts))
             .catch(err => console.log(err))
     }
 
@@ -28,16 +26,17 @@ const OperatorAircraftList = ({ operatorId }) => {
     return (
         <div className="AircraftDetails">
             <Row>
-                {aircraft.map(elm => {
+                {
+                    aircraft.map(elm => {
 
-                    return (
-                        <Col md={{ span: 6 }} className="mb-5" key={elm.id}>
+                        return (
+                            <Col md={{ span: 6 }} className="mb-5" key={elm.id}>
 
-                            <AircraftCard {...elm} />
+                                <AircraftCard {...elm} />
 
-                        </Col>
-                    )
-                })
+                            </Col>
+                        )
+                    })
                 }
             </Row>
 

@@ -7,7 +7,7 @@ import { CATERING_SERVICES } from "../../consts/aircraft.consts"
 
 const API_URL = "http://localhost:5005"
 
-const AircraftForm = () => {
+const AddAircraftForm = () => {
 
     const navigate = useNavigate()
 
@@ -236,4 +236,4 @@ const AircraftForm = () => {
 
     )
 }
-export default AircraftForm
+export default AddAircraftForm

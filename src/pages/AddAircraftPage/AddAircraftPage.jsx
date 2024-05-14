@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap"
-import AircraftForm from "../../components/AircraftForm/AircraftForm"
+import AddAircraftForm from "../../components/AircraftForm/AddAircraftForm"
 
 const AddAircraftPage = () => {
 
@@ -11,7 +11,7 @@ const AddAircraftPage = () => {
                 <h2>Add your aircraft</h2>
                 <hr />
 
-                <AircraftForm />
+                <AddAircraftForm />
 
             </Container>
 

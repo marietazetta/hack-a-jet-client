@@ -45,7 +45,7 @@ const OperatorDetailsPage = () => {
                     </ul>
                 </ListGroup>
 
-                <OperatorAircraftList />
+                <OperatorAircraftList operatorId={operator.id} />
 
                 <Link to='/new-aircraft'>
                     <Button variant="outline-secondary">Add an aircraft</Button>

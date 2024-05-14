@@ -1,12 +1,12 @@
-import axios from "axios";
-import { useState } from "react"
-import { Form, Row, Col, Button, Container, InputGroup } from "react-bootstrap";
-import { useNavigate, Link } from "react-router-dom";
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { useParams, useNavigate } from "react-router-dom"
+import { Form, Row, Button, Col, InputGroup } from "react-bootstrap"
 
 const API_URL = "http://localhost:5005"
 
 
-const MembershipForm = () => {
+const EditMembershipForm = () => {
 
     const [operatorData, setOperatorData] = useState({
         id: '',
@@ -15,46 +15,67 @@ const MembershipForm = () => {
         description: '',
     })
 
-
     const [servicesData, setServicesData] = useState({
         lounge: false,
         transfer: false,
     })
 
-
     const navigate = useNavigate()
+
+    useEffect(() => {
+        loadFormData()
+    }, [])
+
+
+    const { operatorId } = useParams()
+
+    const loadFormData = () => {
+        axios
+            .get(`${API_URL}/operators/${operatorId}`)
+            .then(({ data }) => {
+                setOperatorData(data)
+                setServicesData(data.services)
+            })
+            .catch(err => console.log(err))
+    }
 
     const handleInputChange = event => {
         const { name, value } = event.target
-        setOperatorData({ ...operatorData, [name]: value })
-    }
-
-    const handleServices = e => {
-        const { value, checked } = e.target
-        setServicesData({
-            ...servicesData, [value]: checked
+        setOperatorData({
+            ...operatorData,
+            [name]: value,
         })
     }
 
+    const handleServiceSelect = event => {
+        const { value, checked } = event.target
+        setServicesData({
+            ...servicesData,
+            [value]: checked
+        })
+
+    }
 
     const handleOperatorFormSubmit = e => {
 
         e.preventDefault()
 
-        const operator = {
-            ...operatorData,
+        const operatorData = {
+            ...servicesData,
             services: servicesData
         }
 
         axios
-            .post(`${API_URL}/operators`, operator)
-            .then(() => navigate('/operators'))
+            .put(`${API_URL}/operators/${operatorId}`, operatorData, servicesData)
+            .then(() => navigate(`/operators/${operatorId}`))
             .catch(err => console.log(err))
     }
 
 
     return (
-        <div className="MembershipForm">
+
+        <div className="EditOperatorPage">
+
 
             <Form onSubmit={handleOperatorFormSubmit}>
                 <Row className="mb-3">
@@ -97,7 +118,7 @@ const MembershipForm = () => {
                         name="transfer"
                         checked={servicesData.transfer}
                         label="Transfer service"
-                        onChange={handleServices}
+                        onChange={handleServiceSelect}
                     />
                     <Form.Check
                         value="lounge"
@@ -105,7 +126,7 @@ const MembershipForm = () => {
                         name="lounge"
                         checked={servicesData.lounge}
                         label="Lounge"
-                        onChange={handleServices}
+                        onChange={handleServiceSelect}
                     />
                 </Form.Group>
 
@@ -117,11 +138,11 @@ const MembershipForm = () => {
                     Submit
                 </Button>
             </Form>
-            <Link to="/operators">back</Link>
+
         </div>
 
 
     )
 }
 
-export default MembershipForm
+export default EditMembershipForm
