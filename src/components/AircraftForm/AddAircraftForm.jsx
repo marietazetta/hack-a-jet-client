@@ -70,7 +70,7 @@ const AddAircraftForm = () => {
         const aircraft = {
             ...aircraftData,
             services: servicesData,
-            operatorId: operatorId
+            operatorId: Number(operatorId)
         }
 
         axios
