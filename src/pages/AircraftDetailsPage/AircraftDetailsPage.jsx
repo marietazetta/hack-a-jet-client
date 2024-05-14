@@ -31,6 +31,10 @@ const AircraftDetailsPage = () => {
             .catch((error) => console.log(error))
     }
 
+    // const handleButtonDelete = () => {
+    //     return alert("are you sure?")
+    // }
+
     return (
 
         <>
@@ -78,7 +82,8 @@ const AircraftDetailsPage = () => {
                             </Link>
 
                             <Link to="/aircrafts" >
-                                <Button onClick={deleteAircraft} variant="outline-secondary">Delete</Button>
+                                <Button onClick={
+                                    deleteAircraft} variant="outline-secondary">Delete</Button>
                             </Link>
 
                             <Link to={`/aircrafts/edit/${aircraftId}`}>

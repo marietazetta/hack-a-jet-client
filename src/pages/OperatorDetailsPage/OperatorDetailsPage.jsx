@@ -16,7 +16,7 @@ const OperatorDetailsPage = () => {
 
     useEffect(() => {
         loadOperator()
-    }, [])
+    }, [operatorId])
 
 
     const loadOperator = () => {
@@ -46,7 +46,7 @@ const OperatorDetailsPage = () => {
 
             <OperatorAircraftList operatorId={operator.id} />
 
-            <Link to='/new-aircraft'>
+            <Link to={`/new-aircraft/operator/${operatorId}`}>
                 <Button variant="outline-secondary">Add an aircraft</Button>
             </Link>
             <Link to={`/operators/edit/${operatorId}`}>

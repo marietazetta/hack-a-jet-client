@@ -20,7 +20,7 @@ const AppRoutes = () => {
             <Route path="/operators/:operatorId" element={<OperatorDetailsPage />} />
             <Route path="/aircrafts/:aircraftId" element={<AircraftDetailsPage />} />
             <Route path="/membership" element={<MembershipPage />} />
-            <Route path="/new-aircraft" element={<AddAircraftPage />} />
+            <Route path="/new-aircraft/operator/:operatorId" element={<AddAircraftPage />} />
             <Route path="/aircrafts/edit/:aircraftId" element={<EditAircraftPage />} />
             <Route path="/operators/edit/:operatorId" element={<EditOperatorPage />} />
         </Routes>

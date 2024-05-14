@@ -86,7 +86,9 @@ const EditMembershipForm = () => {
                             name="company"
                             placeholder="Ex. NetJets"
                             value={operatorData.company}
-                            onChange={handleInputChange} />
+                            onChange={handleInputChange}
+                            disabled
+                            readOnly />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridPassword">

@@ -33,6 +33,8 @@ const AddAircraftForm = () => {
 
     const [operators, setOperators] = useState([])
 
+    //const currentOperator = operators.find(elm => elm === `${API_URL}/new-aircraft/operator/${operators.id}`)
+
     useEffect(() => getAllOperators(), [])
 
     const getAllOperators = () => {
@@ -94,15 +96,15 @@ const AddAircraftForm = () => {
 
                     <Form.Group as={Col} className="mb-3" controlId="Operator.Input">
                         <Form.Label>Operator</Form.Label>
-                        <Form.Select aria-label="Default select example"
+                        <Form.Control size="md" type="text" placeholder="Operator"
                             name="operator"
-                            onChange={handleInputChange}
-                            value={aircraftData.operatorId}>
-                            <option>Select an option</option>
-                            {
-                                operators.map(elm => <option value={elm.id}>{elm.company}</option>)
-                            }
-                        </Form.Select>
+                            value={aircraftData.operatorId}
+                            onChange={handleInputChange} />
+
+                        {
+                            operators.map(elm => <option value={elm.id}>{elm.company}</option>)
+                        }
+
                     </Form.Group>
 
                 </Row>
