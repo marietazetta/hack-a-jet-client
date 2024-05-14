@@ -60,13 +60,13 @@ const EditMembershipForm = () => {
 
         e.preventDefault()
 
-        const operatorData = {
-            ...servicesData,
+        const operatorDataEdit = {
+            ...operatorData,
             services: servicesData
         }
 
         axios
-            .put(`${API_URL}/operators/${operatorId}`, operatorData, servicesData)
+            .put(`${API_URL}/operators/${operatorId}`, operatorDataEdit, servicesData)
             .then(() => navigate(`/operators/${operatorId}`))
             .catch(err => console.log(err))
     }
