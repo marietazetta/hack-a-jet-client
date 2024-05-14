@@ -43,7 +43,7 @@ const EditMembershipForm = () => {
         const { name, value } = event.target
         setOperatorData({
             ...operatorData,
-            [name]: value,
+            [name]: value
         })
     }
 
@@ -76,7 +76,6 @@ const EditMembershipForm = () => {
 
         <div className="EditOperatorPage">
 
-
             <Form onSubmit={handleOperatorFormSubmit}>
                 <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridEmail">
@@ -86,9 +85,7 @@ const EditMembershipForm = () => {
                             name="company"
                             placeholder="Ex. NetJets"
                             value={operatorData.company}
-                            onChange={handleInputChange}
-                            disabled
-                            readOnly />
+                            onChange={handleInputChange} />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridPassword">

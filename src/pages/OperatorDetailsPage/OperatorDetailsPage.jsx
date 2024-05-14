@@ -11,6 +11,7 @@ const API_URL = "http://localhost:5005"
 const OperatorDetailsPage = () => {
 
     const [operator, setOperator] = useState([])
+    const [isLoading, setIsloading] = useState(true)
 
     const { operatorId } = useParams()
 
@@ -22,36 +23,53 @@ const OperatorDetailsPage = () => {
     const loadOperator = () => {
         axios
             .get(`${API_URL}/operators/${operatorId}`)
-            .then(({ data }) => setOperator(data))
+            .then(({ data }) => {
+                setOperator(data)
+                setIsloading(false)
+            })
             .catch(err => console.log(err))
     }
 
     return (
         <div className="operatorDetails OperatorDetails">
+            {
+                // isLoading
+                //     ?
+                //     <Spinner animation="grow" variant="dark" />
+                //     :
 
-            <ListGroup className="mt-5">
-                <ListGroup.Item>hola soy un item</ListGroup.Item>
-                <img
-                    src={operator.logo}
-                />
+                <div>
+                    <ListGroup className="mt-5">
+                        <ListGroup.Item><img
+                            src={operator.logo}
+                        /></ListGroup.Item>
 
-                <h3>{operator.company}</h3>
-                <h5>{operator.description}</h5>
-                <ul>
-                    <li>{operator.services?.lounge ? "lounge available" : "no lounge available"}
-                        <img src="" alt="" /></li>
-                    <li>{operator.services?.transfer ? "transfer available" : "no lounge available"}</li>
-                </ul>
-            </ListGroup>
+                        <ListGroup.Item className="mt-5">{operator.company}</ListGroup.Item>
 
-            <OperatorAircraftList operatorId={operator.id} />
+                        <ListGroup.Item className="mt-5">{operator.description}</ListGroup.Item>
+                        <ul>
+                            <li>
+                                {operator.services?.lounge ? "lounge available" : "no lounge available"}
+                                <img src="" alt="" />
+                            </li>
+                            <li>
+                                {operator.services?.transfer ? "transfer available" : "no lounge available"}
+                            </li>
+                        </ul>
 
-            <Link to={`/new-aircraft/operator/${operatorId}`}>
-                <Button variant="outline-secondary">Add an aircraft</Button>
-            </Link>
-            <Link to={`/operators/edit/${operatorId}`}>
-                <Button variant="outline-secondary">Edit</Button>
-            </Link>
+
+                    </ListGroup>
+
+                    <OperatorAircraftList operatorId={operator.id} />
+
+                    <Link to={`/new-aircraft/operator/${operatorId}`}>
+                        <Button variant="outline-secondary" >Add an aircraft</Button>
+                    </Link>
+                    <Link to={`/operators/edit/${operatorId}`}>
+                        <Button variant="outline-secondary">Edit</Button>
+                    </Link>
+                </div >
+            }
         </div >
     )
 }

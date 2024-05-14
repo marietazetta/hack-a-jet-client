@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 import { Form, Row, Col, InputGroup, Button, Container } from "react-bootstrap"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { CATERING_SERVICES } from "../../consts/aircraft.consts"
 
 
@@ -33,7 +33,11 @@ const AddAircraftForm = () => {
 
     const [operators, setOperators] = useState([])
 
-    //const currentOperator = operators.find(elm => elm === `${API_URL}/new-aircraft/operator/${operators.id}`)
+    const { operatorId } = useParams()
+
+    const currentOperator = operators.find(elm => elm.id == operatorId)
+
+
 
     useEffect(() => getAllOperators(), [])
 
@@ -98,12 +102,11 @@ const AddAircraftForm = () => {
                         <Form.Label>Operator</Form.Label>
                         <Form.Control size="md" type="text" placeholder="Operator"
                             name="operator"
-                            value={aircraftData.operatorId}
-                            onChange={handleInputChange} />
-
-                        {
-                            operators.map(elm => <option value={elm.id}>{elm.company}</option>)
-                        }
+                            value={currentOperator?.company}
+                            onChange={handleInputChange}
+                            disabled
+                            readOnly
+                        />
 
                     </Form.Group>
 
