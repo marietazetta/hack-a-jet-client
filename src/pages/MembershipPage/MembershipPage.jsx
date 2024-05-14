@@ -1,5 +1,6 @@
 import { Container } from "react-bootstrap"
 import AddMembershipForm from "../../components/MembershipForm/AddMembershipForm"
+import './MembershipPage.css'
 
 
 const MembershipPage = () => {
@@ -8,7 +9,7 @@ const MembershipPage = () => {
 
         <div className="MembershipPage mt-5">
 
-            <Container>
+            <Container >
                 <h2>Join Us</h2>
                 <hr />
                 <p>Harness the collective power of the private jet industry! Join our exclusive Hack a Jet Alliance and elevate your business to new heights.

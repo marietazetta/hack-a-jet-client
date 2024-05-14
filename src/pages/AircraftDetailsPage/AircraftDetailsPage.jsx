@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
-import { Col, Container, Row, ListGroup, Button } from "react-bootstrap"
+import { Col, Spinner, Row, ListGroup, Button } from "react-bootstrap"
 import { useParams, useNavigate, Link } from "react-router-dom"
 
 
@@ -9,6 +9,7 @@ const API_URL = "http://localhost:5005"
 const AircraftDetailsPage = () => {
 
     const [aircraft, setAircraft] = useState([])
+    const [isLoading, setIsloading] = useState([])
     const { aircraftId } = useParams()
 
     useEffect(() => {
@@ -20,7 +21,10 @@ const AircraftDetailsPage = () => {
     const loadAircraft = () => {
         axios
             .get(`${API_URL}/aircrafts/${aircraftId}`)
-            .then(({ data }) => setAircraft(data))
+            .then(({ data }) => {
+                setAircraft(data)
+                setIsloading(false)
+            })
             .catch(err => console.log(err))
     }
 
@@ -31,18 +35,14 @@ const AircraftDetailsPage = () => {
             .catch((error) => console.log(error))
     }
 
-    // const handleButtonDelete = () => {
-    //     return alert("are you sure?")
-    // }
-
     return (
 
-        <>
-
-            <div className="AircraftDetails">
-
-                <Container className="mt-5">
-
+        <div className="AircraftDetails mt-5">
+            {
+                isLoading
+                    ?
+                    <Spinner animation="grow" variant="dark" />
+                    :
                     <Row>
 
                         <Col md={{ span: 4 }}>
@@ -76,7 +76,6 @@ const AircraftDetailsPage = () => {
                             </ListGroup>
 
 
-
                             <Link to="/aircrafts" >
                                 <Button variant="outline-secondary">Back</Button>
                             </Link>
@@ -94,11 +93,9 @@ const AircraftDetailsPage = () => {
 
                     </Row>
 
-                </Container>
+            }
+        </div >
 
-
-            </div >
-        </>
     )
 }
 export default AircraftDetailsPage
