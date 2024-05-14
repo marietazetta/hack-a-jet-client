@@ -28,33 +28,30 @@ const OperatorDetailsPage = () => {
 
     return (
         <div className="operatorDetails OperatorDetails">
-            <Container className="mt-5">
 
-                <ListGroup>
-                    <ListGroup.Item>hola soy un item</ListGroup.Item>
-                    <img
-                        src={operator.logo}
-                    />
+            <ListGroup className="mt-5">
+                <ListGroup.Item>hola soy un item</ListGroup.Item>
+                <img
+                    src={operator.logo}
+                />
 
-                    <h3>{operator.company}</h3>
-                    <h5>{operator.description}</h5>
-                    <ul>
-                        <li>{operator.services?.lounge ? "lounge available" : "no lounge available"}
-                            <img src="" alt="" /></li>
-                        <li>{operator.services?.transfer ? "transfer available" : "no lounge available"}</li>
-                    </ul>
-                </ListGroup>
+                <h3>{operator.company}</h3>
+                <h5>{operator.description}</h5>
+                <ul>
+                    <li>{operator.services?.lounge ? "lounge available" : "no lounge available"}
+                        <img src="" alt="" /></li>
+                    <li>{operator.services?.transfer ? "transfer available" : "no lounge available"}</li>
+                </ul>
+            </ListGroup>
 
-                <OperatorAircraftList operatorId={operator.id} />
+            <OperatorAircraftList operatorId={operator.id} />
 
-                <Link to='/new-aircraft'>
-                    <Button variant="outline-secondary">Add an aircraft</Button>
-                </Link>
-                <Link to={`/operators/edit/${operatorId}`}>
-                    <Button variant="outline-secondary">Edit</Button>
-                </Link>
-
-            </Container>
+            <Link to='/new-aircraft'>
+                <Button variant="outline-secondary">Add an aircraft</Button>
+            </Link>
+            <Link to={`/operators/edit/${operatorId}`}>
+                <Button variant="outline-secondary">Edit</Button>
+            </Link>
         </div >
     )
 }
