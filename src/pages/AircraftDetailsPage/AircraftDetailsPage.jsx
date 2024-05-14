@@ -2,17 +2,13 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import { Col, Container, Row, ListGroup, Button } from "react-bootstrap"
 import { useParams, useNavigate, Link } from "react-router-dom"
-import AircraftsList from './../AircraftsList/AircraftsList'
-import EditAircraftPage from "../../pages/EditAircraftPage/EditAircraftPage"
 
 
 const API_URL = "http://localhost:5005"
 
-const AircraftDetails = () => {
+const AircraftDetailsPage = () => {
 
     const [aircraft, setAircraft] = useState([])
-
-
     const { aircraftId } = useParams()
 
     useEffect(() => {
@@ -45,37 +41,37 @@ const AircraftDetails = () => {
 
                     <Row>
 
-                        <Col md={{ span: 6 }}>
+                        <Col md={{ span: 4 }}>
                             <img
                                 src={aircraft.images}
                                 alt={aircraft.model}
                             />
                         </Col>
 
-                        <Col md={{ span: 6 }}>
+                        <Col md={{ span: 8 }}>
 
                             <h2>{aircraft.model}</h2>
                             <h5>{aircraft.manufacturer}</h5>
                             <h6>Homebase: {aircraft.homebase}</h6>
-                            <Row>
-                                <p>Year of Make - {aircraft.yom}</p>
-                                <p>Registration: {aircraft.registration}</p>
-                            </Row>
+                            <p>Year of Make - {aircraft.yom}</p>
+                            <p>Registration: {aircraft.registration}</p>
                             <p>Passenger Capacity: {aircraft.pax_capacity}</p>
                             <p>Range: {aircraft.range}</p>
                             <p>Catering: {aircraft.catering}</p>
 
+                            <hr />
+
+                            <h3>Services</h3>
+
                             <ListGroup>
 
-                                <p>Services</p>
-                                <ul>
-                                    <li>Flight Attendant: {aircraft.services?.flight_attendant ? " Included " : "Not included"}</li>
-                                    <li>Wi-Fi: {aircraft.services?.wifi ? " Included " : "Not included"}</li>
-                                    <li>Telephone: {aircraft.services?.telephone ? " Included " : "Not included"}</li>
-
-                                </ul>
+                                <ListGroup.Item>Flight Attendant: {aircraft.services?.flight_attendant ? " Included " : "Not included"}</ListGroup.Item>
+                                <ListGroup.Item>Wi-Fi: {aircraft.services?.wifi ? " Included " : "Not included"}</ListGroup.Item>
+                                <ListGroup.Item>Telephone: {aircraft.services?.telephone ? " Included " : "Not included"}</ListGroup.Item>
 
                             </ListGroup>
+
+
 
                             <Link to="/aircrafts" >
                                 <Button variant="outline-secondary">Back</Button>
@@ -89,8 +85,6 @@ const AircraftDetails = () => {
                                 <Button variant="outline-secondary">Edit</Button>
                             </Link>
 
-
-
                         </Col>
 
                     </Row>
@@ -102,4 +96,4 @@ const AircraftDetails = () => {
         </>
     )
 }
-export default AircraftDetails
+export default AircraftDetailsPage

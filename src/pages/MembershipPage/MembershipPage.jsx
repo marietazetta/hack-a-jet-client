@@ -18,7 +18,7 @@ const MembershipPage = () => {
 
                 <hr />
 
-                <h3><MembershipForm /></h3>
+                <MembershipForm />
 
             </Container>
 

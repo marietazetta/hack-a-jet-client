@@ -53,12 +53,9 @@ const MembershipForm = () => {
     }
 
 
-
-
-
-
     return (
-        <Container key={operatorData.id}>
+        <div className="MembershipForm">
+
             <Form onSubmit={handleOperatorFormSubmit}>
                 <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridEmail">
@@ -121,7 +118,8 @@ const MembershipForm = () => {
                 </Button>
             </Form>
             <Link to="/operators">back</Link>
-        </Container >
+        </div>
+
 
     )
 }

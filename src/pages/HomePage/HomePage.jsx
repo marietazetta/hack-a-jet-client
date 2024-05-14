@@ -6,9 +6,7 @@ const HomePage = () => {
     return (
         <div>
             <Container className="mt-5">
-                <h2>HACK A JET</h2>
-            </Container>
-            <Container className='mt-5'>
+                <h2 className='mb-5'>HACK A JET</h2>
 
                 <h3> Elevate Your Business with Hack a Jet </h3>
                 <p> Join the premier network of luxury jet providers.</p>

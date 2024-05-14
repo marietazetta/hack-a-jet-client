@@ -10,7 +10,6 @@ const OperatorAircraftList = () => {
 
     const [aircraft, setAircraft] = useState([])
 
-
     const { aircraftId } = useParams()
 
     useEffect(() => {

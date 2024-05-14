@@ -2,13 +2,13 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import { Container, ListGroup, Button } from "react-bootstrap"
 import { Link, useParams } from "react-router-dom"
-import OperatorAircraftList from "../OperatorAircraftsList/OperatorAircraftList"
+import OperatorAircraftList from "./../../components/OperatorAircraftsList/OperatorAircraftList"
 
 
 
 const API_URL = "http://localhost:5005"
 
-const OperatorDetails = () => {
+const OperatorDetailsPage = () => {
 
     const [operator, setOperator] = useState([])
 
@@ -31,6 +31,7 @@ const OperatorDetails = () => {
             <Container className="mt-5">
 
                 <ListGroup>
+                    <ListGroup.Item>hola soy un item</ListGroup.Item>
                     <img
                         src={operator.logo}
                     />
@@ -58,4 +59,4 @@ const OperatorDetails = () => {
     )
 }
 
-export default OperatorDetails
+export default OperatorDetailsPage

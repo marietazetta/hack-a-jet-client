@@ -1,0 +1,1 @@
+export const CATERING_SERVICES = ['Drinks', 'Cold catering', 'Hot catering']

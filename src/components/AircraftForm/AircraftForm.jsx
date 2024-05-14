@@ -2,6 +2,7 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import { Form, Row, Col, InputGroup, Button, Container } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
+import { CATERING_SERVICES } from "../../consts/aircraft.consts"
 
 
 const API_URL = "http://localhost:5005"
@@ -24,6 +25,12 @@ const AircraftForm = () => {
         operatorId: ''
     })
 
+    const [servicesData, setServicesData] = useState({
+        flight_attendant: false,
+        wifi: false,
+        telephone: false,
+    })
+
     const [operators, setOperators] = useState([])
 
     useEffect(() => getAllOperators(), [])
@@ -34,12 +41,6 @@ const AircraftForm = () => {
             .then(({ data }) => setOperators(data))
             .catch(err => console.log(err))
     }
-
-    const [servicesData, setServicesData] = useState({
-        flight_attendant: false,
-        wifi: false,
-        telephone: false,
-    })
 
     const handleInputChange = event => {
         const { name, value } = event.target
@@ -75,7 +76,7 @@ const AircraftForm = () => {
 
     return (
 
-        <Container >
+        <div className="AircraftForm">
 
             <Form onSubmit={handleAircraftFormSubmit}>
 
@@ -183,9 +184,9 @@ const AircraftForm = () => {
                             onChange={handleInputChange}
                             value={aircraftData.catering}>
                             <option>Select an option</option>
-                            <option >Drinks</option>
-                            <option >Cold Catering</option>
-                            <option >Hot Catering</option>
+                            {
+                                CATERING_SERVICES.map(elm => <option>{elm}</option>)
+                            }
                         </Form.Select>
                     </Form.Group>
                 </Row>
@@ -230,7 +231,9 @@ const AircraftForm = () => {
                     Submit
                 </Button>
             </Form>
-        </Container>
+
+        </div>
+
     )
 }
 export default AircraftForm

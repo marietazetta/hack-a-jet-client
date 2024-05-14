@@ -10,7 +10,7 @@ const API_URL = 'http://localhost:5005'
 
 const OperatorsList = () => {
 
-    const [operators, setOperators] = useState()
+    const [operators, setOperators] = useState([])
 
     useEffect(() => {
         loadOperators()
@@ -26,23 +26,16 @@ const OperatorsList = () => {
     return (
 
         <div className="OperatorsList">
-            <Container>
-                <Row >
-                    {
-                        operators &&
-                        operators.map((operator) => {
-                            return (
-                                <div key={operator.id}>
-                                    <Col md={{ span: 12 }}>
-                                        <Link to={`/operators/${operator.id}`}>
-                                            <OperatorCard {...operator} />
-                                        </Link>
-                                    </Col>
-                                </div>
-                            );
-                        })}
-                </Row>
-            </Container>
+            {
+                operators.map((operator) => {
+                    return (
+                        <div key={operator.id}>
+                            <Link to={`/operators/${operator.id}`}>
+                                <OperatorCard {...operator} />
+                            </Link>
+                        </div>
+                    );
+                })}
         </div >
     )
 }
