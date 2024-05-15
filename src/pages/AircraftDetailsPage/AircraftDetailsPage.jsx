@@ -2,6 +2,7 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import { Col, Spinner, Row, ListGroup, Button, Carousel } from "react-bootstrap"
 import { useParams, useNavigate, Link } from "react-router-dom"
+import ModalDelete from "../../components/ModalDelete/ModalDelete"
 
 
 const API_URL = import.meta.env.VITE_API_URL
@@ -16,7 +17,6 @@ const AircraftDetailsPage = () => {
         loadAircraft()
     }, [])
 
-    const navigate = useNavigate()
 
     const loadAircraft = () => {
         axios
@@ -28,12 +28,15 @@ const AircraftDetailsPage = () => {
             .catch(err => console.log(err))
     }
 
-    const deleteAircraft = () => {
-        axios
-            .delete(`${API_URL}/aircrafts/${aircraftId}`)
-            .then(() => navigate('/aircrafts'))
-            .catch((error) => console.log(error))
-    }
+    //const navigate = useNavigate()
+
+
+    // const deleteAircraft = () => {
+    //     axios
+    //         .delete(`${API_URL}/aircrafts/${aircraftId}`)
+    //         .then(() => navigate('/aircrafts'))
+    //         .catch((error) => console.log(error))
+    // }
 
     return (
 
@@ -108,7 +111,7 @@ const AircraftDetailsPage = () => {
                             </Link>
 
                             <Link to="/aircrafts" >
-                                <Button onClick={deleteAircraft} variant="outline-secondary">Delete</Button>
+                                <Button onClick={ModalDelete} variant="outline-secondary">Delete</Button>
                             </Link>
 
                             <Link to={`/aircrafts/edit/${aircraftId}`}>

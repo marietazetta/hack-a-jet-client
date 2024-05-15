@@ -69,6 +69,10 @@ const AddAircraftForm = () => {
             images_url: newImages
         })
 
+
+
+
+
     }
 
     const addNewImageField = () => {
