@@ -4,40 +4,35 @@ import { Container } from 'react-bootstrap'
 const HomePage = () => {
 
     return (
-        <div>
-            <Container className="mt-5">
-                <h2 className='mb-5'>HACK A JET</h2>
 
-                <h3> Elevate Your Business with Hack a Jet </h3>
-                <p> Join the premier network of luxury jet providers.</p>
+        <Container className="mt-5">
+            <h2 className='mb-5'>HACK A JET</h2>
 
-                <p>At Hack a Jet, we are committed to connecting discerning travelers with the most exceptional private jet experiences. </p>
-                <p>Our exclusive network of partners shares our passion for providing unparalleled service and creating unforgettable journeys. </p>
+            <h3> Elevate Your Business with Hack a Jet </h3>
+            <p> Join the premier network of luxury jet providers.</p>
 
-                <p> If your company is ready to elevate its offerings and cater to the most discerning clientele, we invite you to apply to join our esteemed network.</p>
-                <br />
-                <h4>Benefits of Partnership: </h4>
-                <ul>
-                    <li>Access to a global network of affluent clientele</li>
-                    <li>Exposure to a curated selection of luxury jet providers</li>
-                    <li>Marketing and promotional support from Hack a Jet</li>
-                    <li>Dedicated account manager to assist with your needs</li>
-                </ul>
-                <br />
-                <h4>Partnership Requirements:</h4>
+            <p>At Hack a Jet, we are committed to connecting discerning travelers with the most exceptional private jet experiences. </p>
+            <p>Our exclusive network of partners shares our passion for providing unparalleled service and creating unforgettable journeys. </p>
 
-                <ul>
-                    <li>Proven track record of providing exceptional luxury jet services</li>
-                    <li>Commitment to safety, reliability, and customer satisfaction</li>
-                    <li>Fleet of well-maintained and luxurious private jets</li>
-                    <li>Experienced and highly qualified crew</li>
-                </ul>
-            </Container>
+            <p> If your company is ready to elevate its offerings and cater to the most discerning clientele, we invite you to apply to join our esteemed network.</p>
+            <br />
+            <h4>Benefits of Partnership: </h4>
+            <ul>
+                <li>Access to a global network of affluent clientele</li>
+                <li>Exposure to a curated selection of luxury jet providers</li>
+                <li>Marketing and promotional support from Hack a Jet</li>
+                <li>Dedicated account manager to assist with your needs</li>
+            </ul>
+            <br />
+            <h4>Partnership Requirements:</h4>
 
-        </div>
-
-
-
+            <ul>
+                <li>Proven track record of providing exceptional luxury jet services</li>
+                <li>Commitment to safety, reliability, and customer satisfaction</li>
+                <li>Fleet of well-maintained and luxurious private jets</li>
+                <li>Experienced and highly qualified crew</li>
+            </ul>
+        </Container>
 
     )
 }

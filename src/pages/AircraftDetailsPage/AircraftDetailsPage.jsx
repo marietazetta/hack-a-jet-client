@@ -81,8 +81,7 @@ const AircraftDetailsPage = () => {
                             </Link>
 
                             <Link to="/aircrafts" >
-                                <Button onClick={
-                                    deleteAircraft} variant="outline-secondary">Delete</Button>
+                                <Button onClick={deleteAircraft} variant="outline-secondary">Delete</Button>
                             </Link>
 
                             <Link to={`/aircrafts/edit/${aircraftId}`}>

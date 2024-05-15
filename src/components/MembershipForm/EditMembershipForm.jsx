@@ -86,7 +86,6 @@ const EditMembershipForm = () => {
                     ?
                     <Spinner animation="grow" variant="dark" />
                     :
-
                     <Form onSubmit={handleOperatorFormSubmit}>
                         <Row className="mb-3">
                             <Form.Group as={Col} controlId="formGridEmail">

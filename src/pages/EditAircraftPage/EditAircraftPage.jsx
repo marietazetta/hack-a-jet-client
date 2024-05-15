@@ -1,7 +1,9 @@
 
-import { Container } from "react-bootstrap"
+import { Container, Button } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import EditAircraftForm from "../../components/AircraftForm/EditAircraftForm"
+
+
 
 const EditAircraftPage = () => {
 
@@ -12,7 +14,11 @@ const EditAircraftPage = () => {
 
             <EditAircraftForm />
 
-            <Link to="/aircrafts">Back to your fleet</Link>
+            <Link to="/aircrafts">
+                <Button variant="dark" type="submit" className="mt-3">
+                    Back
+                </Button>
+            </Link>
 
         </Container>
 

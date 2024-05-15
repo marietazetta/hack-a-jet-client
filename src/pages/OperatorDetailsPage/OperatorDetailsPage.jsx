@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
-import { ListGroup, Button, Spinner } from "react-bootstrap"
+import { ListGroup, Button, Spinner, Container } from "react-bootstrap"
 import { Link, useParams } from "react-router-dom"
 import OperatorAircraftList from "./../../components/OperatorAircraftsList/OperatorAircraftList"
 
@@ -31,7 +31,7 @@ const OperatorDetailsPage = () => {
     }
 
     return (
-        <div className="operatorDetails OperatorDetails">
+        <Container className="operatorDetails mt-5">
             {
                 isLoading
                     ?
@@ -71,7 +71,7 @@ const OperatorDetailsPage = () => {
                     </div>
 
             }
-        </div >
+        </Container >
     )
 }
 
