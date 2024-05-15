@@ -1,9 +1,10 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 import { Col, Spinner, Row, ListGroup, Button } from "react-bootstrap"
-import { useParams, useNavigate, Link } from "react-router-dom"
 import AircraftCarousel from "../../components/AircraftCarousel/AircraftCarousel"
-//import ModalDelete from "../../components/ModalDelete/ModalDelete"
+import { useParams, Link } from "react-router-dom"
+import ModalDelete from "../../components/ModalDelete/ModalDelete"
+
 
 
 
@@ -12,8 +13,12 @@ const API_URL = import.meta.env.VITE_API_URL
 const AircraftDetailsPage = () => {
 
     const [aircraft, setAircraft] = useState([])
-    const [isLoading, setIsloading] = useState([])
+    const [isLoading, setIsloading] = useState(false)
+    const [show, setShow] = useState(false)
     const { aircraftId } = useParams()
+
+    const handleClose = () => setShow(false)
+    const showConfirmModal = () => setShow(true)
 
     useEffect(() => {
         loadAircraft()
@@ -30,15 +35,6 @@ const AircraftDetailsPage = () => {
             .catch(err => console.log(err))
     }
 
-    const navigate = useNavigate()
-
-
-    const deleteAircraft = () => {
-        axios
-            .delete(`${API_URL}/aircrafts/${aircraftId}`)
-            .then(() => navigate('/aircrafts'))
-            .catch((error) => console.log(error))
-    }
 
     return (
 
@@ -84,9 +80,7 @@ const AircraftDetailsPage = () => {
                                 <Button variant="outline-secondary">Back</Button>
                             </Link>
 
-                            <Link to="/aircrafts" >
-                                <Button onClick={deleteAircraft} variant="outline-secondary">Delete</Button>
-                            </Link>
+                            <Button onClick={showConfirmModal} variant="outline-secondary">Delete</Button>
 
                             <Link to={`/aircrafts/edit/${aircraftId}`}>
                                 <Button variant="outline-secondary">Edit</Button>
@@ -97,6 +91,9 @@ const AircraftDetailsPage = () => {
                     </Row>
 
             }
+
+            <ModalDelete show={show} handleClose={handleClose} aircraftId={aircraftId} />
+
         </div >
 
     )
