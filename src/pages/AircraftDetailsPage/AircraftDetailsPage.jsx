@@ -1,7 +1,8 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
-import { Col, Spinner, Row, ListGroup, Button, Carousel } from "react-bootstrap"
+import { Col, Spinner, Row, ListGroup, Button } from "react-bootstrap"
 import { useParams, useNavigate, Link } from "react-router-dom"
+import AircraftCarousel from "../../components/AircraftCarousel/AircraftCarousel"
 //import ModalDelete from "../../components/ModalDelete/ModalDelete"
 
 
@@ -50,36 +51,8 @@ const AircraftDetailsPage = () => {
                     <Row>
 
                         <Col md={{ span: 4 }}>
-                            <img
-                                src={aircraft.images_url}
-                                alt={aircraft.model}
-                            />
-                            <Carousel fade>
-                                <Carousel.Item>
-                                    <ExampleCarouselImage text="First slide" />
-                                    <Carousel.Caption>
-                                        <h3>First slide label</h3>
-                                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                    </Carousel.Caption>
-                                </Carousel.Item>
-                                <Carousel.Item>
-                                    <ExampleCarouselImage text="Second slide" />
-                                    <Carousel.Caption>
-                                        <h3>Second slide label</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </Carousel.Caption>
-                                </Carousel.Item>
-                                <Carousel.Item>
-                                    <ExampleCarouselImage text="Third slide" />
-                                    <Carousel.Caption>
-                                        <h3>Third slide label</h3>
-                                        <p>
-                                            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                                        </p>
-                                    </Carousel.Caption>
-                                </Carousel.Item>
-                            </Carousel>
 
+                            <AircraftCarousel images_url={aircraft.images_url} />
 
                         </Col>
 
