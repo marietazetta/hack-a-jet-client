@@ -69,10 +69,6 @@ const AddAircraftForm = () => {
             images_url: newImages
         })
 
-
-
-
-
     }
 
     const addNewImageField = () => {
@@ -109,7 +105,7 @@ const AddAircraftForm = () => {
         axios
             .post(`${API_URL}/aircrafts`, aircraft)
             .then(() => {
-                navigate('/aircrafts')
+                navigate(`/operators/${operatorId}`)
                 setIsloading(false)
             })
             .catch(err => console.log(err))
