@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { CATERING_SERVICES } from "../../consts/aircraft.consts"
 
 
-const API_URL = "http://localhost:5005"
+const API_URL = import.meta.env.VITE_API_URL
 
 const AddAircraftForm = () => {
 
@@ -60,13 +60,29 @@ const AddAircraftForm = () => {
         })
     }
 
-    const handleGalleryChange = () => {
+    const handleGalleryChange = (event, index) => {
+        const { value } = event.target
+        const newImages = [...aircraftData.images_url]
+        newImages[index] = value
+        setAircraftData({
+            ...aircraftData,
+            images_url: newImages
+        })
 
     }
 
     const addNewImageField = () => {
 
+        const newImages = [...aircraftData.images_url]
+
+        newImages.push('')
+
+        setAircraftData({
+            ...aircraftData,
+            images_url: newImages
+        })
     }
+
 
     const handleServiceSelect = event => {
         const { value, checked } = event.target
@@ -187,13 +203,14 @@ const AddAircraftForm = () => {
                             <Form.Label>Images Gallery</Form.Label>
 
                             {
-                                aircraftData.images_url.map(eachField => {
+                                aircraftData.images_url.map((eachField, idx) => {
                                     return (
                                         <Form.Control
+                                            className="mb-3"
                                             type="url"
-                                            placeholder="Place your image URL here"
-                                            // value={aircraftData.images_url}
-                                            onChange={handleGalleryChange} />
+                                            placeholder={`Place your image here`}
+                                            value={aircraftData.images_url[idx]}
+                                            onChange={event => handleGalleryChange(event, idx)} />
                                     )
                                 })
                             }

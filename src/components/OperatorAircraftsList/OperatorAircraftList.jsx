@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import AircraftCard from "../AircraftCard/AircraftCard"
 import { Row, Col, Spinner } from "react-bootstrap"
 
-const API_URL = "http://localhost:5005"
+const API_URL = import.meta.env.VITE_API_URL
 const embed = "?_embed=aircrafts"
 
 const OperatorAircraftList = ({ operatorId }) => {

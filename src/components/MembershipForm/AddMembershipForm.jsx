@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom";
 import { Form, Row, Col, Button, InputGroup, Spinner } from "react-bootstrap";
 
-const API_URL = "http://localhost:5005"
+const API_URL = import.meta.env.VITE_API_URL
 
 
 const AddMembershipForm = () => {
