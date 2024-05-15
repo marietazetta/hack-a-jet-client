@@ -1,4 +1,4 @@
-import { Container, Navbar, Nav } from 'react-bootstrap'
+import { Container, Navbar, Nav, Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import './Navigation.css'
 import Search from '../Search/Search'
@@ -11,11 +11,43 @@ const Navigation = () => {
 
         <>
             <nav className='Navigation'>
-                <Navbar bg="dark" data-bs-theme="dark">
-                    <Container>
+                <Navbar bg="dark" expand="lg" variant="dark">
+                    <Container fluid>
+
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Collapse id="basic-navbar-nav">
+                            <Nav className="me-auto">
+                                <Link to="/operators">
+                                    <Nav.Link href="/operators" as="span">Operators</Nav.Link>
+                                </Link>
+                                <Link to="/aircrafts">
+                                    <Nav.Link href="/aircrafts" as="span">Fleet</Nav.Link>
+                                </Link>
+                                <Link to="/membership">
+                                    <Nav.Link href="/membership" as="span">Become a member</Nav.Link>
+                                </Link>
+                            </Nav>
+
+                            <Navbar.Brand className="centered-logo" as={Link} to="/">
+                                <img src="./src/assets/HackAJet.jpg" alt="HackAJet Logo" style={{ width: "100px" }} />
+                            </Navbar.Brand>
+
+                            <Form>
+                                <Search />
+                            </Form>
+
+                        </Navbar.Collapse>
+                    </Container>
+                </Navbar>
+                {/* <Navbar bg="dark" data-bs-theme="dark" variant="dark" expand="md" >
+                    <Container fluid>
+
+                        <Navbar.Brand as={Link} to="/">
+                            <img src="./src/assets/HackAJet.jpg" alt="HackAJet Logo" />
+                        </Navbar.Brand>
                         <Link to="/">
                             <Nav.Link href="/" as="span"><img src="./src\assets\HackAJet.jpg" alt="LOGO" /></Nav.Link>
-                        </Link>
+                        </Link> 
 
                         <Nav className="me-auto">
                             <Link to="/operators">
@@ -31,7 +63,7 @@ const Navigation = () => {
                             <Search />
                         </Nav>
                     </Container>
-                </Navbar>
+                </Navbar> */}
             </nav>
         </>
 

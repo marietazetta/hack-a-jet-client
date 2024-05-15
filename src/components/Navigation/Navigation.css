@@ -6,9 +6,10 @@ img {
 }
 
 
-
-
-
 .Navigation a {
     text-decoration: none;
+}
+
+.centered-logo {
+    margin: 0 auto;
 }
