@@ -9,7 +9,7 @@ const API_URL = import.meta.env.VITE_API_URL
 const AircraftsList = () => {
 
     const [aircrafts, setAircrafts] = useState([])
-    const [isLoading, setIsloading] = useState([])
+    const [isLoading, setIsloading] = useState(true)
 
     useEffect(() => {
         loadAircrafts()
