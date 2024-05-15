@@ -18,6 +18,7 @@ const AddAircraftForm = () => {
         yom: 0,
         pax_capacity: 0,
         main_image: '',
+        images_url: [''],
         range: 0,
         homebase: '',
         catering: '',
@@ -57,6 +58,14 @@ const AddAircraftForm = () => {
             ...aircraftData,
             [name]: value,
         })
+    }
+
+    const handleGalleryChange = () => {
+
+    }
+
+    const addNewImageField = () => {
+
     }
 
     const handleServiceSelect = event => {
@@ -162,7 +171,7 @@ const AddAircraftForm = () => {
                             </Form.Group>
                         </Row>
 
-                        <Form.Label htmlFor="basic-url">Image</Form.Label>
+                        <Form.Label htmlFor="basic-url">Cover Image</Form.Label>
 
                         <InputGroup className="mb-3">
                             <InputGroup.Text id="basic-addon3">
@@ -174,6 +183,22 @@ const AddAircraftForm = () => {
                                 onChange={handleInputChange} />
                         </InputGroup>
 
+                        <Form.Group controlId="ImagesGallery" className="mb-3">
+                            <Form.Label>Images Gallery</Form.Label>
+
+                            {
+                                aircraftData.images_url.map(eachField => {
+                                    return (
+                                        <Form.Control
+                                            type="url"
+                                            placeholder="Place your image URL here"
+                                            // value={aircraftData.images_url}
+                                            onChange={handleGalleryChange} />
+                                    )
+                                })
+                            }
+                            <Button size="sm" variant="dark" onClick={addNewImageField}>Add more</Button>
+                        </Form.Group>
 
 
                         <Row className="mb-3">

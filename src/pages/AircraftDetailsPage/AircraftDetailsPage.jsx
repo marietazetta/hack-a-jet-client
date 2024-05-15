@@ -47,7 +47,7 @@ const AircraftDetailsPage = () => {
 
                         <Col md={{ span: 4 }}>
                             <img
-                                src={aircraft.images}
+                                src={aircraft.images_url}
                                 alt={aircraft.model}
                             />
                         </Col>
