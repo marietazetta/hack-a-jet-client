@@ -1,6 +1,6 @@
+import './OperatorsList.css'
 import axios from "axios"
 import OperatorCard from "../OperatorCard/OperatorCard"
-import './OperatorsList.css'
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { Spinner } from 'react-bootstrap'

@@ -1,10 +1,19 @@
+import { Form, FloatingLabel } from 'react-bootstrap'
+
+
+
 const Search = () => {
 
     return (
 
-        <div className="Search">
-            <img src=".././assets/lupa.png" alt="" />
-            <h2>La búsqueda</h2>
+        <div className='Search'>
+            <FloatingLabel
+                controlId="floatingInput"
+                label="search your operator or aircraft"
+                className="mb-3"
+            >
+                <Form.Control type="email" placeholder="search your operator or aircraft" />
+            </FloatingLabel>
         </div>
 
     )

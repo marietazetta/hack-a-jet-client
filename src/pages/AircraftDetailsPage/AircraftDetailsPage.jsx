@@ -1,8 +1,9 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 import { Col, Spinner, Row, ListGroup, Button, Carousel } from "react-bootstrap"
-import { useParams, useNavigate, Link } from "react-router-dom"
-//import ModalDelete from "../../components/ModalDelete/ModalDelete"
+import { useParams, Link } from "react-router-dom"
+import ModalDelete from "../../components/ModalDelete/ModalDelete"
+
 
 
 
@@ -11,8 +12,12 @@ const API_URL = import.meta.env.VITE_API_URL
 const AircraftDetailsPage = () => {
 
     const [aircraft, setAircraft] = useState([])
-    const [isLoading, setIsloading] = useState([])
+    const [isLoading, setIsloading] = useState(false)
+    const [show, setShow] = useState(false)
     const { aircraftId } = useParams()
+
+    const handleClose = () => setShow(false)
+    const showConfirmModal = () => setShow(true)
 
     useEffect(() => {
         loadAircraft()
@@ -29,15 +34,6 @@ const AircraftDetailsPage = () => {
             .catch(err => console.log(err))
     }
 
-    const navigate = useNavigate()
-
-
-    const deleteAircraft = () => {
-        axios
-            .delete(`${API_URL}/aircrafts/${aircraftId}`)
-            .then(() => navigate('/aircrafts'))
-            .catch((error) => console.log(error))
-    }
 
     return (
 
@@ -54,32 +50,6 @@ const AircraftDetailsPage = () => {
                                 src={aircraft.images_url}
                                 alt={aircraft.model}
                             />
-                            <Carousel fade>
-                                <Carousel.Item>
-                                    <ExampleCarouselImage text="First slide" />
-                                    <Carousel.Caption>
-                                        <h3>First slide label</h3>
-                                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                    </Carousel.Caption>
-                                </Carousel.Item>
-                                <Carousel.Item>
-                                    <ExampleCarouselImage text="Second slide" />
-                                    <Carousel.Caption>
-                                        <h3>Second slide label</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </Carousel.Caption>
-                                </Carousel.Item>
-                                <Carousel.Item>
-                                    <ExampleCarouselImage text="Third slide" />
-                                    <Carousel.Caption>
-                                        <h3>Third slide label</h3>
-                                        <p>
-                                            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                                        </p>
-                                    </Carousel.Caption>
-                                </Carousel.Item>
-                            </Carousel>
-
 
                         </Col>
 
@@ -111,9 +81,7 @@ const AircraftDetailsPage = () => {
                                 <Button variant="outline-secondary">Back</Button>
                             </Link>
 
-                            <Link to="/aircrafts" >
-                                <Button onClick={deleteAircraft} variant="outline-secondary">Delete</Button>
-                            </Link>
+                            <Button onClick={showConfirmModal} variant="outline-secondary">Delete</Button>
 
                             <Link to={`/aircrafts/edit/${aircraftId}`}>
                                 <Button variant="outline-secondary">Edit</Button>
@@ -124,6 +92,9 @@ const AircraftDetailsPage = () => {
                     </Row>
 
             }
+
+            <ModalDelete show={show} handleClose={handleClose} aircraftId={aircraftId} />
+
         </div >
 
     )

@@ -1,6 +1,7 @@
 import { Container, Navbar, Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import './Navigation.css'
+import Search from '../Search/Search'
 
 
 
@@ -27,6 +28,7 @@ const Navigation = () => {
                             <Link to="/membership">
                                 <Nav.Link href="/membership" as="span">Become a member</Nav.Link>
                             </Link>
+                            <Search />
                         </Nav>
                     </Container>
                 </Navbar>
