@@ -13,7 +13,7 @@ const API_URL = import.meta.env.VITE_API_URL
 const AircraftDetailsPage = () => {
 
     const [aircraft, setAircraft] = useState([])
-    const [isLoading, setIsloading] = useState(false)
+    const [isLoading, setIsloading] = useState(true)
     const [show, setShow] = useState(false)
     const { aircraftId } = useParams()
 
