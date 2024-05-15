@@ -2,6 +2,7 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import { Col, Spinner, Row, ListGroup, Button, Carousel } from "react-bootstrap"
 import { useParams, useNavigate, Link } from "react-router-dom"
+//import ModalDelete from "../../components/ModalDelete/ModalDelete"
 
 
 

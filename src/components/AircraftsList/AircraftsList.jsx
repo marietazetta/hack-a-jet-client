@@ -47,7 +47,6 @@ const AircraftsList = () => {
                         })
                         }
                     </Row>
-
             }
         </div>
     )
