@@ -1,5 +1,9 @@
 import { Modal, Button } from "react-bootstrap"
+import { useNavigate } from "react-router-dom"
 
+
+
+const navigate = useNavigate()
 
 const deleteAircraft = () => {
     axios
@@ -9,7 +13,7 @@ const deleteAircraft = () => {
 }
 
 
-function ModalDelete() {
+const ModalDelete = () => {
     return (
         <div
             className="modal show"

@@ -62,9 +62,19 @@ const AddAircraftForm = () => {
 
     const handleGalleryChange = () => {
 
+
+
+
+
     }
 
     const addNewImageField = () => {
+
+
+
+
+
+
 
     }
 
