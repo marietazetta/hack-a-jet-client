@@ -39,34 +39,38 @@ const OperatorDetailsPage = () => {
                     :
 
                     <div>
-                        <ListGroup className="mt-5">
-                            <ListGroup.Item><img
+                        <ListGroup className="mt-0 border-0">
+                            <ListGroup.Item className="border-0 mx-auto"><img
                                 src={operator.logo}
                             /></ListGroup.Item>
 
-                            <ListGroup.Item className="mt-5">{operator.company}</ListGroup.Item>
+                            <ListGroup.Item as="h1" className="border-0">{operator.company}</ListGroup.Item>
 
-                            <ListGroup.Item className="mt-5">{operator.description}</ListGroup.Item>
-                            <ul>
-                                <li>
-                                    {operator.services?.lounge ? "lounge available" : "no lounge available"}
+                            <ListGroup.Item className="mt-10 border-0">{operator.description}</ListGroup.Item>
+
+                            <ListGroup.Item as="h4" className="p-4 border-0">Services</ListGroup.Item>
+
+                            <ListGroup as="ul" className="mt-1 mb-5" horizontal>
+
+                                <ListGroup.Item as="li" className="border border-0">
+                                    {operator.services?.lounge ? "• lounge available" : "• no lounge available"}
                                     <img src="" alt="" />
-                                </li>
-                                <li>
-                                    {operator.services?.transfer ? "transfer available" : "no lounge available"}
-                                </li>
-                            </ul>
+                                </ListGroup.Item>
+                                <ListGroup.Item as="li" className="border border-0">
+                                    {operator.services?.transfer ? "• transfer available" : "• no lounge available"}
+                                </ListGroup.Item>
 
+                            </ListGroup>
 
                         </ListGroup>
 
                         <OperatorAircraftList operatorId={operator.id} />
 
                         <Link to={`/new-aircraft/operator/${operatorId}`}>
-                            <Button variant="outline-secondary" >Add an aircraft</Button>
+                            <Button variant="outline-secondary" className="mb-5">Add an aircraft</Button>
                         </Link>
                         <Link to={`/operators/edit/${operatorId}`}>
-                            <Button variant="outline-secondary">Edit</Button>
+                            <Button variant="outline-secondary" className="mb-5">Edit</Button>
                         </Link>
                     </div>
 
