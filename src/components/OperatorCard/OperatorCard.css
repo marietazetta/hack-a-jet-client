@@ -1,3 +1,5 @@
-.OperatorCard .card {
-    align-items: center;
+.OperatorCard .imgCardOperator {
+    position: relative;
+    left: calc(50% - 90px);
+    width: 180px;
 }

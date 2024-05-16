@@ -4,7 +4,7 @@ import { ListGroup, Button, Spinner, Container } from "react-bootstrap"
 import { Link, useParams } from "react-router-dom"
 import OperatorAircraftList from "./../../components/OperatorAircraftsList/OperatorAircraftList"
 
-
+import './OperatorDetailsPage.css'
 
 const API_URL = import.meta.env.VITE_API_URL
 
@@ -67,10 +67,10 @@ const OperatorDetailsPage = () => {
                         <OperatorAircraftList operatorId={operator.id} />
 
                         <Link to={`/new-aircraft/operator/${operatorId}`}>
-                            <Button variant="outline-secondary" className="mb-5">Add an aircraft</Button>
+                            <Button className="custom-color-button mb-5">Add an aircraft</Button>
                         </Link>
                         <Link to={`/operators/edit/${operatorId}`}>
-                            <Button variant="outline-secondary" className="mb-5">Edit</Button>
+                            <Button className="custom-color-button mb-5">Edit</Button>
                         </Link>
                     </div>
 
