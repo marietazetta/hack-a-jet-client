@@ -1,5 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap"
 import AircraftsList from "../../components/AircraftsList/AircraftsList"
+import './AircraftsPage.css'
 
 const AircraftsPage = () => {
 
@@ -8,9 +9,9 @@ const AircraftsPage = () => {
         <div className="AircraftsPage">
 
             <Container className="mt-5">
-                <h2>OUR FLEET</h2>
-                <hr />
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, magnam rerum quos voluptas labore provident velit porro temporibus eaque maiores, commodi blanditiis possimus. Et harum voluptas magnam soluta ad quam!</p>
+
+
+                <h3 className="text-center">An iconic global fleet of all aircraft ranges</h3>
 
                 <hr />
 
@@ -25,7 +26,7 @@ const AircraftsPage = () => {
                     </Col>
                 </Row>
 
-                <hr />
+
 
 
                 <AircraftsList />

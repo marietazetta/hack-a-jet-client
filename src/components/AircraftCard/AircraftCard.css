@@ -1,3 +1,27 @@
 .AircraftCard {
     text-decoration: none;
 }
+
+.equal-aspect-ratio {
+    object-fit: cover;
+    height: 350px;
+
+}
+
+.card-body {
+    min-height: 200px;
+    background-color: #0D1F2D;
+}
+
+.card-title {
+    color: whitesmoke;
+}
+
+.card-text {
+    color: #E4C3AD;
+}
+
+.AircraftCard button {
+    background-color: #E4C3AD;
+    color: #0D1F2D
+}

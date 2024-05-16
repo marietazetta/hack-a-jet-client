@@ -10,16 +10,16 @@ const AircraftCard = ({ id, model, description, main_image }) => {
         <>
             <div className="AircraftCard">
 
-                <Card className="shadow-sm border-0">
+                <Card className="shadow-sm border-0 ">
                     <Link to={`/aircrafts/${id}`}>
                         <Card.Img variant="top"
                             src={main_image}
-                            className="rounded-top"
+                            className="rounded-top equal-aspect-ratio"
                         />
                     </Link>
-                    <Card.Body>
+                    <Card.Body >
                         <Card.Title>{model}</Card.Title>
-                        <Card.Text className="text-muted">
+                        <Card.Text >
                             {description}
                         </Card.Text>
                         <Link to={`/aircrafts/${id}`}>
