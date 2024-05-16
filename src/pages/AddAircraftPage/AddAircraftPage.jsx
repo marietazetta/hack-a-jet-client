@@ -7,7 +7,7 @@ const AddAircraftPage = () => {
     return (
         <div className="AddAircraftPage" >
 
-            <Container className="mt-5">
+            <Container className="pt-5" >
 
                 <h2 className="text-center">
                     - ADD YOUR AIRCRAFT -</h2>

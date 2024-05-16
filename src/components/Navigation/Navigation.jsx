@@ -11,10 +11,11 @@ const Navigation = () => {
 
         <>
             <nav className='Navigation'>
-                <Navbar bg="dark" expand="lg" variant="dark">
+                <Navbar bg="#0D1F2D" expand="lg" variant="dark">
                     <Container fluid>
 
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="me-auto">
                                 <Link to="/operators">
@@ -28,8 +29,10 @@ const Navigation = () => {
                                 </Link>
                             </Nav>
 
-                            <Navbar.Brand className="centered-logo" as={Link} to="/">
-                                <img src="./src/assets/HackAJet.jpg" alt="HackAJet Logo" style={{ width: "100px" }} />
+                            <Navbar.Brand className="logo" as={Link} to="/">
+                                <img src="https://res.cloudinary.com/dzncdwx7u/image/upload/v1715855856/HackAJet_saqwfl.png"
+                                    alt="HackAJet Logo"
+                                    style={{ width: "130px" }} />
                             </Navbar.Brand>
 
                             <Form>

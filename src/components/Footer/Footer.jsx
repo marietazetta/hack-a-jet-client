@@ -5,9 +5,8 @@ const Footer = () => {
     return (
         <div className="Footer">
 
-            <p>HACK A JET</p>
-
-
+            <h6>HACK A JET</h6>
+            <p>&copy; All rights reserved</p>
 
         </div>
     )

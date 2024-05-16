@@ -1,15 +1,24 @@
-img {
+/* img {
     width: 80px;
     border-radius: 50px;
+} */
 
-
+.Navigation {
+    background-color: #0D1F2D;
 }
-
 
 .Navigation a {
     text-decoration: none;
+
 }
 
-.centered-logo {
-    margin: 0 auto;
+.nav-link {
+    color: whitesmoke;
+}
+
+.Navigation .logo {
+    position: absolute;
+    z-index: 9999;
+    left: calc(50% - 50px);
+    top: 10px;
 }
