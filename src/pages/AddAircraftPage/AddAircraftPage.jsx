@@ -9,7 +9,7 @@ const AddAircraftPage = () => {
 
             <Container className="pt-5" >
 
-                <h2 className="text-center">
+                <h2 className="text-center  ">
                     - ADD YOUR AIRCRAFT -</h2>
                 <hr />
 

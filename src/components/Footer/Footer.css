@@ -1,16 +1,14 @@
 .Footer {
     background-color: #0D1F2D;
-    color: white;
+    width: 100%;
+    padding: 1rem;
     text-align: center;
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    color: #E4C3AD;
+
 }
 
-.Footer p h6 {
-    font-weight: 500;
-
+.Footer h6,
+.Footer p {
+    margin-bottom: 1rem;
 
 }

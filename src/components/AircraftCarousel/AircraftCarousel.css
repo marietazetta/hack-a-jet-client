@@ -1,0 +1,10 @@
+.carousel-image {
+    height: 500px;
+    object-fit: cover;
+}
+
+.AircraftCarousel .carousel-card {
+    padding: 0%;
+    box-sizing: border-box;
+    margin-left: 10px;
+}

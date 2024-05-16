@@ -13,12 +13,12 @@ const AircraftCarousel = ({ images_url, model }) => {
 
                         <Card>
 
-                            <Card.Body style={{ width: '100%' }}>
+                            <Card.Body className="carousel-card" style={{ width: '100%' }}>
                                 <Carousel>
                                     {images_url.map((image, index) => (
                                         <Carousel.Item key={index}>
 
-                                            <Image className="d-block w-100"
+                                            <Image className="d-block w-100 carousel-image"
                                                 src={image}
                                                 alt={model} />
                                         </Carousel.Item>

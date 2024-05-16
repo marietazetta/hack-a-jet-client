@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { Form, Row, Button, Col, InputGroup, Spinner } from "react-bootstrap"
+import { Link } from "react-router-dom"
 import { CATERING_SERVICES } from './../../consts/aircraft.consts'
 import './EditAircraftForm.css'
 
@@ -101,7 +102,7 @@ const EditAircraftForm = () => {
                     :
 
 
-                    <Form onSubmit={handleAircraftFormSubmit}>
+                    <Form className="AddAircraftForm" onSubmit={handleAircraftFormSubmit}>
 
                         <Form.Group className="mb-3" controlId="Model.Input">
                             <Form.Label>Aircraft Model</Form.Label>
@@ -237,6 +238,12 @@ const EditAircraftForm = () => {
                         <Button className="custom-color-button" type="submit">
                             Submit Changes
                         </Button>
+
+                        <Link to="/aircrafts">
+                            <Button className="custom-color-button" type="submit">
+                                Back
+                            </Button>
+                        </Link>
 
                     </Form>
             }

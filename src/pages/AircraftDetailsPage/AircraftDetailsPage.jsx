@@ -4,6 +4,7 @@ import { Col, Spinner, Row, ListGroup, Button } from "react-bootstrap"
 import AircraftCarousel from "../../components/AircraftCarousel/AircraftCarousel"
 import { useParams, Link } from "react-router-dom"
 import ModalDelete from "../../components/ModalDelete/ModalDelete"
+import './AircraftDetailsPage.css'
 
 
 
@@ -57,7 +58,7 @@ const AircraftDetailsPage = () => {
 
                             <h2>{aircraft.model}</h2>
                             <h5>{aircraft.manufacturer}</h5>
-                            <h6>Homebase: {aircraft.homebase}</h6>
+                            <p>Homebase: {aircraft.homebase}</p>
                             <p>Year of Make - {aircraft.yom}</p>
                             <p>Registration: {aircraft.registration}</p>
                             <p>Passenger Capacity: {aircraft.pax_capacity}</p>
@@ -66,7 +67,7 @@ const AircraftDetailsPage = () => {
 
                             <hr />
 
-                            <h3>Services</h3>
+                            <h4>Services</h4>
 
                             <ListGroup>
 

@@ -8,7 +8,8 @@ video {
 .HomePageText {
 
     text-align: center;
-    display: block;
+    margin-bottom: 30px;
+
 }
 
 .HomePageText h2 {
@@ -19,4 +20,8 @@ video {
 
 li {
     list-style: none;
+}
+
+.HomePageText p {
+    margin: 2px;
 }

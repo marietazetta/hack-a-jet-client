@@ -3,7 +3,6 @@ import { useState, useEffect } from "react"
 import { ListGroup, Button, Spinner, Container } from "react-bootstrap"
 import { Link, useParams } from "react-router-dom"
 import OperatorAircraftList from "./../../components/OperatorAircraftsList/OperatorAircraftList"
-
 import './OperatorDetailsPage.css'
 
 const API_URL = import.meta.env.VITE_API_URL
@@ -40,7 +39,7 @@ const OperatorDetailsPage = () => {
 
                     <div>
                         <ListGroup className="mt-0 border-0">
-                            <ListGroup.Item className="border-0 mx-auto"><img
+                            <ListGroup.Item className="logo border-0 mx-auto"><img
                                 src={operator.logo}
                             /></ListGroup.Item>
 

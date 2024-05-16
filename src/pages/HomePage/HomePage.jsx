@@ -29,14 +29,14 @@ const HomePage = () => {
 
                 <p> If your company is ready to elevate its offerings and cater to the most discerning clientele, we invite you to apply to join our esteemed network.</p>
                 <br />
-                <h4>Benefits of Partnership: </h4>
-                <ul>
-                    <li>Access to a global network of affluent clientele</li>
-                    <li>Exposure to a curated selection of luxury jet providers</li>
-                    <li>Marketing and promotional support from Hack a Jet</li>
-                    <li>Dedicated account manager to assist with your needs</li>
-                </ul>
-                <br />
+
+                <h4>Benefits of Partnership:</h4>
+                <p>Access to a global network of affluent clientele.</p>
+                <p>Exposure to a curated selection of luxury jet providers.</p>
+                <p>Marketing and promotional support from Hack a Jet.</p>
+                <p>Dedicated account manager to assist with your needs.</p>
+
+                {/* <br />
                 <h4>Partnership Requirements:</h4>
 
                 <ul>
@@ -44,7 +44,7 @@ const HomePage = () => {
                     <li>Commitment to safety, reliability, and customer satisfaction</li>
                     <li>Fleet of well-maintained and luxurious private jets</li>
                     <li>Experienced and highly qualified crew</li>
-                </ul>
+                </ul> */}
             </Container>
 
         </div>

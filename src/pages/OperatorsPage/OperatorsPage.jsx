@@ -1,5 +1,6 @@
 import OperatorsList from "../../components/OperatorsList/OperatorsList"
 import { Container } from 'react-bootstrap'
+import './OperatorsPage.css'
 
 
 const OperatorsPage = () => {

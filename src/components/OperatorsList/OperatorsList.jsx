@@ -37,7 +37,7 @@ const OperatorsList = () => {
                     :
                     operators.map((operator) => {
                         return (
-                            <div key={operator.id}>
+                            <div key={operator.id} >
                                 <Link to={`/operators/${operator.id}`}>
                                     <OperatorCard {...operator} />
                                 </Link>

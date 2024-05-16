@@ -4,6 +4,8 @@
     color: #E4C3AD;
     margin-left: 20px;
     margin-bottom: 20px;
+    margin-top: 15px;
+
 }
 
 .custom-color-button:hover {
@@ -12,7 +14,13 @@
     color: #0D1F2D;
 }
 
-
-h2 {
+.AircraftDetails h2 {
     color: #0D1F2D;
+    text-align: center;
+}
+
+.AircraftDetails h5 {
+    color: #0D1F2D;
+    text-align: center;
+    margin-bottom: 15px;
 }

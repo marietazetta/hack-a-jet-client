@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { Button, Container } from "react-bootstrap"
 import EditMembershipForm from "../../components/MembershipForm/EditMembershipForm"
+import './EditOperatorPage.css'
 
 
 const EditOperatorPage = () => {
@@ -13,10 +14,10 @@ const EditOperatorPage = () => {
 
                 <EditMembershipForm />
 
-                <Link to="/operators">
+                {/* <Link to="/operators">
                     <Button variant="secondary" size="md" className="mt-3">
                         back
-                    </Button></Link>
+                    </Button></Link> */}
             </Container >
 
         </div>

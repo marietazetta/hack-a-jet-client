@@ -5,7 +5,7 @@ const OperatorCard = ({ company, logo, description }) => {
 
     return (
         <div className="OperatorCard mt-5 mb-3">
-            <Card>
+            <Card >
                 <Card.Img className='imgCardOperator' src={logo} />
                 <Card.Body>
                     <Card.Text as="h3">

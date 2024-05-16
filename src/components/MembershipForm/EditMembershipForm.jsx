@@ -1,7 +1,8 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate, Link } from "react-router-dom"
 import { Form, Row, Button, Col, InputGroup, Spinner } from "react-bootstrap"
+import './EditMembershipForm.css'
 
 const API_URL = import.meta.env.VITE_API_URL
 
@@ -86,7 +87,7 @@ const EditMembershipForm = () => {
                     ?
                     <Spinner animation="grow" variant="dark" />
                     :
-                    <Form onSubmit={handleOperatorFormSubmit}>
+                    <Form className="EditMembershipForm" onSubmit={handleOperatorFormSubmit}>
                         <Row className="mb-3">
                             <Form.Group as={Col} controlId="formGridEmail">
                                 <Form.Label>Company Name</Form.Label>
@@ -143,9 +144,14 @@ const EditMembershipForm = () => {
                             <Form.Check type="checkbox" label="Agree to the terms and conditions" />
                         </Form.Group>
 
-                        <Button variant="dark" type="submit">
+                        <Button className="custom-color-button" variant="dark" type="submit">
                             Submit
                         </Button>
+
+                        <Link to="/operators">
+                            <Button variant="secondary" size="md" className="custom-color-button">
+                                Back
+                            </Button></Link>
                     </Form>
 
             }

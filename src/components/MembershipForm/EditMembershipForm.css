@@ -1,0 +1,45 @@
+.EditMembershipForm {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #FFEAD9;
+    margin-bottom: 30px;
+}
+
+.EditMembershipForm .form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #0D1F2D;
+}
+
+.EditMembershipForm .form-control {
+    border-radius: 4px;
+}
+
+.EditMembershipForm .row {
+    margin-bottom: 15px;
+}
+
+.EditMembershipForm button {
+    background-color: #0D1F2D;
+    color: #FFEAD9;
+    border-color: white;
+
+}
+
+.custom-color-button {
+    background-color: #0D1F2D;
+    border: #0D1F2D;
+    color: #E4C3AD;
+    margin-left: 20px;
+}
+
+.custom-color-button:hover {
+    background-color: #E4C3AD;
+    border: #E4C3AD;
+    color: #0D1F2D;
+}
+
+.BackButton {
+    margin-left: 20px;
+}

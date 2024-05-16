@@ -10,3 +10,24 @@
     border: #E4C3AD;
     color: #0D1F2D;
 }
+
+.EditAircraftForm {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #FFEAD9;
+}
+
+.EditAircraftForm .form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #0D1F2D;
+}
+
+.EditAircraftForm .form-control {
+    border-radius: 4px;
+}
+
+.EditAircraftForm .row {
+    margin-bottom: 15px;
+}
