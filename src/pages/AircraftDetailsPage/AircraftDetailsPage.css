@@ -1,0 +1,58 @@
+.AircraftDetails {
+    /* Add your desired styles for the main container, like padding or margin */
+    padding: 2rem;
+    margin: 0 auto;
+    /* Center the content horizontally */
+    max-width: 1000px;
+    /* Limit the width for larger screens */
+    background-color: #f8f9fa;
+    /* Optional: Light background color */
+}
+
+.aircraft-info {
+    padding: 1rem;
+}
+
+.aircraft-details {
+    padding: 1rem;
+}
+
+.aircraft-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.aircraft-actions button {
+    margin-right: 0.5rem;
+}
+
+/* Style the card component */
+.card {
+    border-radius: 0.5rem;
+    border-color: #ddd;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.05);
+    /* Subtle shadow */
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.list-group-item {
+    border-color: transparent;
+    /* Remove list group borders */
+    padding: 0.5rem 1rem;
+    /* Adjust padding for a cleaner look */
+}
+
+/* Optional styles for responsiveness */
+@media (max-width: 768px) {
+
+    .aircraft-info,
+    .aircraft-details {
+        /* Adjust layout for smaller screens, e.g., stack information on top of each other */
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}

@@ -15,7 +15,7 @@ const AircraftsPage = () => {
 
                 <hr />
 
-                <Row className="mt-5">
+                {/* <Row className="mt-5">
                     <Col md={{ span: 6 }}>
                         <h3>Algo de info</h3>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi, quae. Sint corporis ad quidem distinctio eveniet! Minima, quod vero libero aliquid incidunt porro hic rerum, fuga maiores eius consequatur nobis?</p>
@@ -24,9 +24,7 @@ const AircraftsPage = () => {
                         <h3>Extraaaaaa</h3>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi, quae. Sint corporis ad quidem distinctio eveniet! Minima, quod vero libero aliquid incidunt porro hic rerum, fuga maiores eius consequatur nobis?</p>
                     </Col>
-                </Row>
-
-
+                </Row> */}
 
 
                 <AircraftsList />

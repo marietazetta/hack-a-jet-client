@@ -47,13 +47,13 @@ const AircraftDetailsPage = () => {
                     :
                     <Row>
 
-                        <Col md={{ span: 4 }}>
+                        <Col md={{ span: 6 }}>
 
                             <AircraftCarousel images_url={aircraft.images_url} />
 
                         </Col>
 
-                        <Col md={{ span: 8 }}>
+                        <Col md={{ span: 6 }}>
 
                             <h2>{aircraft.model}</h2>
                             <h5>{aircraft.manufacturer}</h5>
