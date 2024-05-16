@@ -16,7 +16,7 @@ const ModalDelete = ({ show, handleClose, aircraftId }) => {
             .delete(`${API_URL}/aircrafts/${aircraftId}`)
             .then(() => {
                 handleClose()
-                navigate('/aircrafts')
+                navigate(`/operators`)
             })
             .catch((error) => console.log(error))
     }

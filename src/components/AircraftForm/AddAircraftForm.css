@@ -1,0 +1,26 @@
+.AddAircraftForm {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #FFEAD9;
+}
+
+.AddAircraftForm .form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #0D1F2D;
+}
+
+.AddAircraftForm .form-control {
+    border-radius: 4px;
+}
+
+.AddAircraftForm .row {
+    margin-bottom: 15px;
+}
+
+.AddAircraftForm button {
+    background-color: #0D1F2D;
+    color: #FFEAD9;
+    border-color: white;
+}

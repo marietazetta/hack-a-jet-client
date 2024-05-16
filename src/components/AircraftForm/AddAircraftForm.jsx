@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { Form, Row, Col, InputGroup, Button, Spinner } from "react-bootstrap"
 import { useNavigate, useParams } from "react-router-dom"
 import { CATERING_SERVICES } from "../../consts/aircraft.consts"
+import './AddAircraftForm.css'
 
 
 const API_URL = import.meta.env.VITE_API_URL
@@ -120,7 +121,7 @@ const AddAircraftForm = () => {
                     ?
                     <Spinner animation="grow" variant="dark" />
                     :
-                    <Form onSubmit={handleAircraftFormSubmit}>
+                    <Form className="AddAircraftForm" onSubmit={handleAircraftFormSubmit}>
 
                         <Row className="mb-3">
 
