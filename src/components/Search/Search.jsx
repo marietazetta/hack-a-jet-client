@@ -1,5 +1,5 @@
 import { Form, ListGroup } from 'react-bootstrap'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
@@ -17,19 +17,30 @@ const Search = () => {
     const handleCompanyQuery = event => {
         const { value: query } = event.target
         setCompanyQuery(query)
-        setOption(false)
+        setOption(true)
         getFilteredCompanies(query)
     }
 
+    useEffect(() => {
+        if (companyQuery === '') {
+            setFilteredCompanies([])
+            return;
+        }
 
-    const getFilteredCompanies = query => {
+        getFilteredCompanies()
+    }, [companyQuery])
+
+
+
+    const getFilteredCompanies = () => {
         axios
-            .get(`${API_URL}/operators?company_like=${query}`)
-            .then(({ data }) =>
-                setFilteredCompanies(data))
+            .get(`${API_URL}/operators?company_like=${companyQuery}`)
+            .then(({ data }) => {
+                setFilteredCompanies(data)
+
+            })
             .catch(err => console.log(err))
     }
-
 
 
     return (
@@ -41,20 +52,24 @@ const Search = () => {
                 value={companyQuery}
                 onChange={handleCompanyQuery}
             />
-            <ListGroup style={{ position: 'absolute', zIndex: 1000 }}>
 
-                {
-                    filteredCompanies.map(company => {
-                        return (
-                            <ListGroup.Item key={company.id}>
-                                <Link to={`/operators/${company.id}`} onClick={handleOption}>
-                                    {company.company}
-                                </Link>
-                            </ListGroup.Item>
-                        )
-                    })
-                }
-            </ListGroup>
+            {
+                option && (
+                    <ListGroup style={{ position: 'absolute', zIndex: 1000 }}>
+                        {
+                            filteredCompanies.map(company => {
+                                return (
+                                    <ListGroup.Item key={company.id}>
+                                        <Link to={`/operators/${company.id}`} onClick={() => handleOption(false)}>
+                                            {company.company}
+                                        </Link>
+                                    </ListGroup.Item>
+                                )
+                            })
+                        }
+                    </ListGroup>
+                )
+            }
 
         </div>
     )
