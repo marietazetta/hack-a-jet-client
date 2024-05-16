@@ -16,6 +16,7 @@ const AircraftDetailsPage = () => {
     const [isLoading, setIsloading] = useState(true)
     const [show, setShow] = useState(false)
     const { aircraftId } = useParams()
+    const { operatorId } = useParams()
 
     const handleClose = () => setShow(false)
     const showConfirmModal = () => setShow(true)
@@ -92,7 +93,7 @@ const AircraftDetailsPage = () => {
 
             }
 
-            <ModalDelete show={show} handleClose={handleClose} aircraftId={aircraftId} />
+            <ModalDelete show={show} handleClose={handleClose} aircraftId={aircraftId} operatorId={operatorId} />
 
         </div >
 
