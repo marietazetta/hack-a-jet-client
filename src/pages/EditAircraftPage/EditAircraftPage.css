@@ -1,0 +1,13 @@
+.custom-color-button {
+    background-color: #0D1F2D;
+    border: #0D1F2D;
+    color: #E4C3AD;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.custom-color-button:hover {
+    background-color: #E4C3AD;
+    border: #E4C3AD;
+    color: #0D1F2D;
+}

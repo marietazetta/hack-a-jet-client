@@ -45,7 +45,7 @@ const AircraftDetailsPage = () => {
                     ?
                     <Spinner animation="grow" variant="dark" />
                     :
-                    <Row>
+                    <Row className="mb-3">
 
                         <Col md={{ span: 4 }}>
 
@@ -78,13 +78,13 @@ const AircraftDetailsPage = () => {
 
 
                             <Link to="/aircrafts" >
-                                <Button variant="outline-secondary">Back</Button>
+                                <Button className="custom-color-button">Back</Button>
                             </Link>
 
-                            <Button onClick={showConfirmModal} variant="outline-secondary">Delete</Button>
+                            <Button onClick={showConfirmModal} className="custom-color-button">Delete</Button>
 
                             <Link to={`/aircrafts/edit/${aircraftId}`}>
-                                <Button variant="outline-secondary">Edit</Button>
+                                <Button className="custom-color-button">Edit</Button>
                             </Link>
 
                         </Col>
