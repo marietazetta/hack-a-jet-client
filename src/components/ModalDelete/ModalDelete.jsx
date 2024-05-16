@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 const API_URL = import.meta.env.VITE_API_URL
 
 
-const ModalDelete = ({ show, handleClose, aircraftId }) => {
+const ModalDelete = ({ show, handleClose, aircraftId, operatorId }) => {
 
     console.log(handleClose)
 
