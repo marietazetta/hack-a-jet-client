@@ -1,0 +1,32 @@
+.AddMembershipForm {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #FFEAD9;
+    margin-bottom: 30px;
+}
+
+.AddMembershipForm .form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #0D1F2D;
+}
+
+.AddMembershipForm .form-control {
+    border-radius: 4px;
+}
+
+.AddMembershipForm .row {
+    margin-bottom: 15px;
+}
+
+.AddMembershipForm button {
+    background-color: #0D1F2D;
+    color: #FFEAD9;
+    border-color: white;
+
+}
+
+.BackButton {
+    margin-left: 20px;
+}

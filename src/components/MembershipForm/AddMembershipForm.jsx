@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom";
 import { Form, Row, Col, Button, InputGroup, Spinner } from "react-bootstrap";
+import './AddMembershipForm.css'
 
 const API_URL = import.meta.env.VITE_API_URL
 
@@ -57,7 +58,7 @@ const AddMembershipForm = () => {
     return (
         <div className="MembershipForm">
 
-            <Form onSubmit={handleOperatorFormSubmit}>
+            <Form className="AddMembershipForm" onSubmit={handleOperatorFormSubmit}>
                 <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridEmail">
                         <Form.Label>Company Name</Form.Label>
@@ -80,14 +81,15 @@ const AddMembershipForm = () => {
                     </Form.Group>
                 </Row>
 
-                <InputGroup>
-                    <InputGroup.Text>Description</InputGroup.Text>
-                    <Form.Control as="textarea"
-                        aria-label="With textarea"
+                <Form.Group className="mb-3" controlId="description.Input">
+                    <Form.Label>Description</Form.Label>
+                    <Form.Control
+                        as="textarea"
+                        rows={2}
                         name="description"
                         value={operatorData.description}
                         onChange={handleInputChange} />
-                </InputGroup>
+                </Form.Group>
 
                 <Form.Group className="mb-3">
                     <Form.Label>Services</Form.Label>
@@ -109,20 +111,19 @@ const AddMembershipForm = () => {
                     />
                 </Form.Group>
 
-                <Form.Group className="mb-3" id="formGridCheckbox">
-                    <Form.Check type="checkbox" label="Agree to the terms and conditions" />
-                </Form.Group>
-
                 <Button variant="dark" type="submit">
                     Submit
                 </Button>
+
+                <Link to="/operators" >
+                    <Button variant="dark" type="submit" className="BackButton">
+                        Back
+                    </Button>
+                </Link>
+
             </Form>
 
-            <Link to="/operators" >
-                <Button variant="dark" type="submit" className="mt-3">
-                    Back
-                </Button>
-            </Link>
+
         </div>
 
 

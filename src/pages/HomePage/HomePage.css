@@ -4,3 +4,16 @@ video {
     object-fit: cover;
     width: 100%;
 }
+
+.HomePageText {
+
+    text-align: center;
+    display: block;
+}
+
+
+h2 {
+    color: #546A7B;
+    text-align: center;
+    margin-top: 40px;
+}

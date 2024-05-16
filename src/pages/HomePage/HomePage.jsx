@@ -12,12 +12,12 @@ const HomePage = () => {
                 src="https://res.cloudinary.com/dzncdwx7u/video/upload/v1715857418/1650628-hd_1920_1080_25fps_gfm0lm.mp4"
                 width='120%'
                 autoPlay
+                muted
+                loop
             />
 
 
-            <Container >
-
-
+            <Container className='HomePageText'>
 
                 <h2 className='mb-5'>HACK A JET</h2>
 
