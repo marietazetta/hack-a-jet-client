@@ -35,7 +35,7 @@ const Navigation = () => {
                                     style={{ width: "130px" }} />
                             </Navbar.Brand>
 
-                            <Form>
+                            <Form className="mt-4">
                                 <Search />
                             </Form>
 
