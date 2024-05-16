@@ -11,9 +11,12 @@ video {
     display: block;
 }
 
-
-h2 {
-    color: #546A7B;
+.HomePageText h2 {
+    color: #0D1F2D;
     text-align: center;
     margin-top: 40px;
+}
+
+li {
+    list-style: none;
 }
