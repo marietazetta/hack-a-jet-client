@@ -1,66 +1,59 @@
-import { Form, FloatingLabel } from 'react-bootstrap'
-import { useState, useEffect } from 'react'
-import OperatorCard from '../OperatorCard/OperatorCard'
+import { Form, FloatingLabel, ListGroup } from 'react-bootstrap'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
-
-
 
 const API_URL = import.meta.env.VITE_API_URL
 
-
 const Search = () => {
-
-
     const [companyQuery, setCompanyQuery] = useState('')
-    const [companies, setCompanies] = useState([])
     const [filteredCompanies, setFilteredCompanies] = useState([])
 
     const handleCompanyQuery = event => {
-        const query = event.target.value.toLowerCase()
+        const { value: query } = event.target
         setCompanyQuery(query)
-        filterCompaniesByName(query)
+        getFilteredCompanies(query)
     }
 
 
-    const filterCompaniesByName = query => {
-        const filtered = companies.filter(company => company.title.toLowerCase().includes(query))
-        setFilteredCompanies(filtered)
-    }
-
-    useEffect(() => {
+    const getFilteredCompanies = query => {
         axios
-            .get(`${API_URL}/operators`)
-            .then(({ data }) => {
-                setCompanies(data)
-                setFilteredCompanies(data)
-            })
+            .get(`${API_URL}/operators?company_like=${query}`)
+            .then(({ data }) =>
+                setFilteredCompanies(data))
             .catch(err => console.log(err))
-    }, [])
-
+    }
 
     return (
-
-
-        <div className='Search'>
+        <div className='Search' >
             <FloatingLabel
                 controlId="floatingInput"
-                label="search your operator or aircraft"
+                label="search your operator"
                 className="mb-3"
             >
                 <Form.Control
-                    type="email"
-                    placeholder="search your operator or aircraft"
+                    type="text"
+                    placeholder="search your operator"
                     value={companyQuery}
                     onChange={handleCompanyQuery}
                 />
             </FloatingLabel>
-            {/* {
-                filteredCompanies.map(company => {
-                    return <OperatorCard key={company._id} {...company} />;
-                })
-            } */}
-        </div>
+            <ListGroup style={{ position: 'absolute', zIndex: 1000 }}>
 
+                {
+                    filteredCompanies.map(company => {
+                        return (
+                            <ListGroup.Item key={company.id}>
+                                <Link to={`/operators/${company.id}`}>
+                                    {company.company}
+                                </Link>
+                            </ListGroup.Item>
+                        )
+                    })
+                }
+            </ListGroup>
+
+        </div>
     )
 }
 
