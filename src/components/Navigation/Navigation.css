@@ -1,10 +1,11 @@
-/* img {
-    width: 80px;
-    border-radius: 50px;
-} */
-
 .Navigation {
     background-color: #0D1F2D;
+    height: 100px;
+
+}
+
+.Navigation .me-auto {
+    margin-top: 20px;
 }
 
 .Navigation a {
