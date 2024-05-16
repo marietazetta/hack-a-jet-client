@@ -26,7 +26,6 @@ const Search = () => {
             setFilteredCompanies([])
             return;
         }
-
         getFilteredCompanies()
     }, [companyQuery])
 
