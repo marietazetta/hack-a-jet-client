@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { Form, Row, Button, Col, InputGroup, Spinner } from "react-bootstrap"
 import { CATERING_SERVICES } from './../../consts/aircraft.consts'
+import './EditAircraftForm.css'
 
 
 
@@ -233,7 +234,7 @@ const EditAircraftForm = () => {
                         </Form.Group>
 
 
-                        <Button variant="dark" type="submit">
+                        <Button className="custom-color-button" type="submit">
                             Submit Changes
                         </Button>
 
