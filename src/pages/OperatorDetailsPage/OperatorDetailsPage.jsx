@@ -57,7 +57,7 @@ const OperatorDetailsPage = () => {
                                     <img src="" alt="" />
                                 </ListGroup.Item>
                                 <ListGroup.Item as="li" className="border border-0">
-                                    {operator.services?.transfer ? "• transfer available" : "• no lounge available"}
+                                    {operator.services?.transfer ? "• transfer available" : "• no transfer available"}
                                 </ListGroup.Item>
 
                             </ListGroup>

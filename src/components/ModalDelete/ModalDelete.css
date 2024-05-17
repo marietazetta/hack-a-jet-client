@@ -1,0 +1,22 @@
+.ModalDelete {
+    z-index: 9900;
+    color: #0D1F2D;
+}
+
+.ModalDelete .modal-content {
+    background-color: #E4C3AD;
+}
+
+
+.custom-color-button {
+    background-color: #0D1F2D;
+    border: #0D1F2D;
+    color: #E4C3AD;
+    margin-left: 20px;
+}
+
+.custom-color-button:hover {
+    background-color: #fff;
+    border: #E4C3AD;
+    color: #0D1F2D;
+}
