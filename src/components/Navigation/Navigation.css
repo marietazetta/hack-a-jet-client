@@ -19,7 +19,7 @@
 
 .Navigation .logo {
     position: absolute;
-    z-index: 9999;
+    z-index: 9000;
     left: calc(50% - 50px);
     top: 10px;
 }

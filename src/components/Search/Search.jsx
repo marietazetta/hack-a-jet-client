@@ -8,35 +8,27 @@ const API_URL = import.meta.env.VITE_API_URL
 const Search = () => {
     const [companyQuery, setCompanyQuery] = useState('')
     const [filteredCompanies, setFilteredCompanies] = useState([])
-    const [option, setOption] = useState(false)
-
-    const handleOption = (boolean) => {
-        setOption(boolean)
-    }
 
     const handleCompanyQuery = event => {
         const { value: query } = event.target
+        query === '' ? resetFilter() : triggerSearch(query)
+    }
+
+    const resetFilter = () => {
+        setFilteredCompanies([])
+        setCompanyQuery('')
+    }
+
+    const triggerSearch = query => {
         setCompanyQuery(query)
-        setOption(true)
         getFilteredCompanies(query)
     }
 
-    useEffect(() => {
-        if (companyQuery === '') {
-            setFilteredCompanies([])
-            return;
-        }
-        getFilteredCompanies()
-    }, [companyQuery])
-
-
-
-    const getFilteredCompanies = () => {
+    const getFilteredCompanies = query => {
         axios
-            .get(`${API_URL}/operators?company_like=${companyQuery}`)
+            .get(`${API_URL}/operators?company_like=${query}`)
             .then(({ data }) => {
                 setFilteredCompanies(data)
-
             })
             .catch(err => console.log(err))
     }
@@ -53,13 +45,13 @@ const Search = () => {
             />
 
             {
-                option && (
+                (
                     <ListGroup style={{ position: 'absolute', zIndex: 1000 }}>
                         {
                             filteredCompanies.map(company => {
                                 return (
                                     <ListGroup.Item key={company.id}>
-                                        <Link to={`/operators/${company.id}`} onClick={() => handleOption(false)}>
+                                        <Link to={`/operators/${company.id}`} onClick={resetFilter}>
                                             {company.company}
                                         </Link>
                                     </ListGroup.Item>
